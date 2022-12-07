@@ -11,21 +11,81 @@ const resourceLinks = [
   { link: "/resources", text: "Resources" },
 ];
 
+const socialLinks = [
+  { name: "mdi:twitter", link: "/" },
+  { name: "mdi:instagram", link: "/" },
+  { name: "ic:baseline-tiktok", link: "/" },
+];
+
 import { Image } from "@astrojs/image/components";
+import { Icon } from "astro-icon";
+import PriamryBtn from "@components/buttons/PrimaryBtn";
 ---
 
 <section class="text-text-light">
   <footer class="px-edge py-12 bg-primary">
-    <div class="max-w-screen-2xl mx-auto">
-      <Image
-        src={import("@img/hundred-million-logo-white.png")}
-        alt="hundred million logo"
-      />
-      <h6 class="font-bebas text-lg">
-        A 100 Million Organizaiton. <a href="https://100million.org"
-          >Visit Parent Org</a
-        >
-      </h6>
+    <div class="max-w-screen-2xl mx-auto flex justify-between">
+      <div>
+        <Image
+          src={import("@img/hundred-million-logo-white.png")}
+          alt="hundred million logo"
+        />
+        <h6 class="mt-6 font-bebas text-lg">
+          A 100 Million Organizaiton. <a href="https://100million.org"
+            >Visit Parent Org</a
+          >
+        </h6>
+        <div class="flex space-x-2 mt-6">
+          {
+            socialLinks.map((link) => (
+              <a href={link.link}>
+                <Icon name={link.name} size={24} class="fill-primary" />
+              </a>
+            ))
+          }
+        </div>
+      </div>
+      <div>
+        <p class="text-4xl font-bebas">
+          Get <span class="text-text-dark">Involved</span>
+        </p>
+        <ul class="space-y-2">
+          {
+            involveLinks.map((link) => (
+              <li>
+                <a href={link.link}>{link.text}</a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <div>
+        <p class="text-4xl font-bebas">
+          Get <span class="text-text-dark">Educated</span>
+        </p>
+        <ul class="space-y-2">
+          {
+            resourceLinks.map((link) => (
+              <li>
+                <a href={link.link}>{link.text}</a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <div>
+        <p class="text-4xl font-bebas">
+          Stay <span class="text-text-dark">Up To Date</span>
+        </p>
+        <div class="">
+          <input
+            class="bg-transparent border border-black focus:outline-none rounded-full py-3 w-64 px-4 text-sm text-text-light placeholder:text-text-light"
+            type="text"
+            placeholder="Email"
+          />
+          <PriamryBtn className="!text-lg" to="/">Join Us</PriamryBtn>
+        </div>
+      </div>
     </div>
   </footer>
   <div class="bg-primary-darker py-4">
