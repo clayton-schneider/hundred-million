@@ -1,3 +1,4 @@
+// Must be a react file so button can be used in other react files
 import type { ReactNode } from "react";
 
 interface Props {

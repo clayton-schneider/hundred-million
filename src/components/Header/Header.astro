@@ -1,1 +1,30 @@
-<h2>Header</h2>
+---
+import { Image } from "@astrojs/image/components";
+
+// Import components
+import NavMenu from "./NavMenu";
+const links = [
+  { linkText: "Home", link: "/" },
+  { linkText: "About", link: "/about" },
+  { linkText: "Articles", link: "/articles" },
+  { linkText: "Resources", link: "/resources" },
+];
+
+interface Props {
+  className?: string;
+}
+const { className } = Astro.props;
+---
+
+<header class={(className ? className : "") + " bg-primary px-edge relative"}>
+  <div class="max-w-screen-2xl mx-auto py-4 flex items-center justify-between">
+    <a href="/">
+      <Image
+        src={import("@img/hundred-million-logo-white.png")}
+        alt="hundred million logo"
+      />
+    </a>
+
+    <NavMenu links={links} client:load />
+  </div>
+</header>
