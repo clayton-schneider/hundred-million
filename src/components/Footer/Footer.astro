@@ -10,10 +10,24 @@ const resourceLinks = [
   { link: "/articles", text: "Articles" },
   { link: "/resources", text: "Resources" },
 ];
+
+import { Image } from "@astrojs/image/components";
 ---
 
 <section class="text-text-light">
-  <footer></footer>
+  <footer class="px-edge py-12 bg-primary">
+    <div class="max-w-screen-2xl mx-auto">
+      <Image
+        src={import("@img/hundred-million-logo-white.png")}
+        alt="hundred million logo"
+      />
+      <h6 class="font-bebas text-lg">
+        A 100 Million Organizaiton. <a href="https://100million.org"
+          >Visit Parent Org</a
+        >
+      </h6>
+    </div>
+  </footer>
   <div class="bg-primary-darker py-4">
     <p class="font-bebas text-xl text-center">
       Copyright © 2022 100 Million Us | All Right Reserved | Powered By <a
