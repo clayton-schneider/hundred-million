@@ -1,0 +1,40 @@
+---
+import { Image } from "@astrojs/image/components";
+import PrimaryBtn from "@components/buttons/PrimaryBtn";
+---
+
+<section class="px-edge pt-36 bg-black relative">
+  <div
+    class="max-w-screen-2xl mx-auto flex justify-between space-x-40 relative z-10"
+  >
+    <div>
+      <div class="w-[690px] h-[1080px] bg-gray-400"></div>
+    </div>
+    <div class="mt-20">
+      <h2 class="font-bebas leading-none text-text-light text-[100px]">
+        Current <br /><span class="text-primary">Campaign</span>
+      </h2>
+      <div class="mt-4 text-text-light space-y-2 text-lg">
+        <p>
+          This is just placeholder text. Don’t be alarmed, this is just here to
+          fill up space since your finalized copy isn’t ready yet. Once we have
+          your content finalized, we’ll replace this placeholder text with your
+          real content.
+        </p>
+        <p>
+          Sometimes it’s nice to put in text just to get an idea of how text
+          will fill in a space on your website.
+        </p>
+        <p>
+          Traditionally our industry has used Lorem Ipsum, which is placeholder
+          text written in Latin. Unfortunately, not everyone is familiar with
+          Lorem Ipsum and that can lead to confusion. I can’t tell you how many
+          times clients have asked me why their website is in another language!
+        </p>
+      </div>
+
+      <PrimaryBtn className="mt-4" color="primary">Get Involved</PrimaryBtn>
+    </div>
+  </div>
+  <div class="absolute bottom-0 left-0 right-0 w-full h-36 bg-primary"></div>
+</section>
