@@ -1,0 +1,22 @@
+---
+import VerticalCard from "@components/cards/VerticalCard.astro";
+---
+
+<section class="bg-primary px-edge py-36">
+  <div class="max-w-screen-2xl mx-auto">
+    <div class="max-w-6xl mx-auto text-text-light text-center">
+      <h2 class="font-bebas text-[130px] text-text-light leading-none">
+        Join The <span class="text-text-dark">Fight</span>
+      </h2>
+      <p class="text-lg">
+        This is just placeholder text. Don’t be alarmed, this is just here to
+        fill up space since your finalized copy isn’t ready yet. Once we have
+        your content finalized, we’ll replace this placeholder text with your
+        real content.
+      </p>
+    </div>
+    <div class="mt-10 flex justify-center space-x-11">
+      {[...Array(3).keys()].map((num) => <VerticalCard />)}
+    </div>
+  </div>
+</section>
