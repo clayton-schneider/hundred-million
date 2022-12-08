@@ -27,6 +27,7 @@ module.exports = {
         "primary-darker": "#AD0C2D",
         "text-light": "#FFFFFF",
         "text-dark": "#000000",
+        dark: "#101010",
       },
       padding: {
         edge: "2.5%",
