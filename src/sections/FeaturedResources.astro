@@ -1,0 +1,16 @@
+---
+import VerticalCard from "@components/cards/VerticalCard.astro";
+---
+
+<section class="bg-primary px-edge py-36">
+  <div class="max-w-screen-2xl mx-auto">
+    <h2
+      class="font-bebas text-text-light text-[100px] text-center leading-none"
+    >
+      Featured <br /><span class="text-text-dark text-[130px]">Resources</span>
+    </h2>
+    <div class="flex justify-center space-x-11">
+      {[...Array(3).keys()].map((num) => <VerticalCard />)}
+    </div>
+  </div>
+</section>
