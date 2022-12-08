@@ -1,0 +1,18 @@
+---
+import PrimaryBtn from "@components/buttons/PrimaryBtn";
+import ArticleCard from "@components/cards/ArticleCard.astro";
+---
+
+<section class="bg-black px-edge py-36">
+  <div class="max-w-screen-2xl mx-auto">
+    <div class="flex justify-between items-center">
+      <h2 class="font-bebas text-[130px] text-text-light">
+        Latest <span class="text-primary">Articles</span>
+      </h2>
+      <PrimaryBtn color="primary">View All Articles</PrimaryBtn>
+    </div>
+    <div class="flex justify-between">
+      {[...Array(2).keys()].map((num) => <ArticleCard />)}
+    </div>
+  </div>
+</section>
