@@ -1,0 +1,18 @@
+---
+import ProfileCard from "@components/cards/ProfileCard.astro";
+---
+
+<section class="bg-black px-edge py-20">
+  <div class="max-w-screen-2xl mx-auto">
+    <div class="text-text-light text-center">
+      <h2 class="font-bebas text-[100px] leading-none">
+        Our <span class="text-priamry">Team</span>
+      </h2>
+      <p class="text-lg">Description for the team and what you stand for.</p>
+    </div>
+
+    <div class="mt-20 grid grid-cols-3 gap-11">
+      {[...Array(6).keys()].map(() => <ProfileCard />)}
+    </div>
+  </div>
+</section>
