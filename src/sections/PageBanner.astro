@@ -1,0 +1,10 @@
+---
+export interface Props {
+  page: string;
+}
+const { page } = Astro.props;
+---
+
+<section class="bg-primary px-edge py-32">
+  <h1 class="font-bebas text-white text-center text-[100px]">{page}</h1>
+</section>
