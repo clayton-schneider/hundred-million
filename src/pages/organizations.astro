@@ -1,0 +1,43 @@
+---
+import PageBanner from "@sections/PageBanner.astro";
+import Layout from "../layouts/Layout.astro";
+import ImageExplanation from "@sections/ImageExplanation.astro";
+import FeaturedResources from "@sections/FeaturedResources.astro";
+import LatestArticles from "@sections/LatestArticles.astro";
+---
+
+<Layout title="Organizations">
+  <PageBanner>Organizations</PageBanner>
+  <ImageExplanation bottomBanner={false}>
+    <h2 class="font-bebas leading-none text-text-light text-[100px]">
+      Your Action <br /><span class="text-primary text-[130px]">Plan</span>
+    </h2>
+
+    <div class="mt-4 text-text-light space-y-4 text-lg">
+      {
+        [...Array(4).keys()].map((num) => (
+          <div>
+            <p class="font-bebas leading-none text-5xl">Step #{num + 1}</p>
+            <p>
+              This is just placeholder text. Don’t be alarmed, this is just here
+              to fill up space since your finalized copy isn’t ready yet.
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </ImageExplanation>
+  <ImageExplanation reversed={true}>
+    <h2 class="font-bebas leading-none text-text-light text-[100px]">
+      Join Our Networkd Of Organizations<br /><span
+        class="text-primary text-[130px]">Across The US</span
+      >
+    </h2>
+    <p class="font-bebas leading-none text-text-light text-5xl">
+      Explain Why They Would Want To Join. Fill Our The Form Below To Be
+      Considered.
+    </p>
+  </ImageExplanation>
+  <FeaturedResources />
+  <LatestArticles />
+</Layout>

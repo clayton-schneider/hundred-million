@@ -3,9 +3,10 @@ import { Image } from "@astrojs/image/components";
 
 export interface Props {
   reversed?: boolean;
+  bottomBanner?: boolean;
 }
 
-const { reversed = false } = Astro.props;
+const { bottomBanner = true, reversed = false } = Astro.props;
 ---
 
 <section class="px-edge pt-36 bg-black relative">
@@ -20,5 +21,9 @@ const { reversed = false } = Astro.props;
       <slot />
     </div>
   </div>
-  <div class="absolute bottom-0 left-0 right-0 w-full h-36 bg-primary"></div>
+  {
+    bottomBanner && (
+      <div class="absolute bottom-0 left-0 right-0 w-full h-36 bg-primary" />
+    )
+  }
 </section>
