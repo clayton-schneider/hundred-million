@@ -1,0 +1,111 @@
+---
+import Layout from "src/layouts/Layout.astro";
+import PageBanner from "@sections/PageBanner.astro";
+import PrimaryBtn from "@components/buttons/PrimaryBtn";
+import Icon from "astro-icon";
+
+const fields = [
+  { fieldType: "text", id: "name", name: "Name" },
+  { fieldType: "email", id: "email", name: "Email Address" },
+  { fieldType: "textarea", id: "message", name: "Message" },
+];
+
+const contacts = [
+  { icon: "mdi:envelope", text: "example@email.com" },
+  { icon: "mdi:phone", text: "123-456-7890" },
+  { icon: "mdi:location", text: "this is just placeholder address text." },
+];
+
+const socialLinks = [
+  { name: "mdi:twitter", link: "/" },
+  { name: "mdi:instagram", link: "/" },
+  { name: "ic:baseline-tiktok", link: "/" },
+];
+---
+
+<Layout title="Contact Us">
+  <PageBanner>Contact US</PageBanner>
+  <section class="bg-gray-400 h-[500px]">
+    <iframe
+      id="gmap_canvas"
+      src="https://maps.google.com/maps?q=2880%20Broadway,%20New%20York&t=&z=13&ie=UTF8&iwloc=&output=embed"
+      frameborder="0"
+      scrolling="no"
+      marginheight="0"
+      marginwidth="0"
+      class="w-full h-full"></iframe>
+  </section>
+  <section class="bg-black px-edge pb-4">
+    <div class="max-w-4xl mx-auto grid grid-cols-2 -translate-y-24">
+      <div class="bg-white py-12 px-16">
+        <p class="font-bebas text-5xl text-center leading-none">
+          Send Us A Message
+        </p>
+        <form
+          data-static-form-name="contact"
+          class="mt-10 grow w-full my-5 grid grid-cols-1 gap-4"
+        >
+          {
+            fields.map((field) => (
+              <div class="col-span-full relative">
+                <label for={field.id} class="invisible absolute">
+                  {field.name}
+                </label>
+                {field.fieldType === "textarea" ? (
+                  <textarea
+                    id={field.name}
+                    class="w-full bg-transparent focus:outline-none focus:border-b-primary resize-none border-b-gray-800 border-b p-2 h-[150px]"
+                    placeholder={field.name}
+                  />
+                ) : (
+                  <input
+                    type={
+                      field.fieldType as astroHTML.JSX.HTMLInputTypeAttribute
+                    }
+                    name={field.name}
+                    id={field.id}
+                    class="w-full bg-transparent focus:outline-none border-b-gray-800 focus:border-b-primary border-b p-2"
+                    placeholder={field.name}
+                  />
+                )}
+              </div>
+            ))
+          }
+
+          <PrimaryBtn
+            type="submit"
+            color="primary"
+            className="col-span-full text-center">Send Message</PrimaryBtn
+          >
+        </form>
+      </div>
+      <div class="bg-primary py-20 px-16">
+        <p class="font-bebas text-5xl text-white text-center">Contact Us</p>
+        <ul class="mt-4 space-y-8">
+          {
+            contacts.map((contact) => (
+              <li class="max-w-[200px] mx-auto">
+                <Icon
+                  name={contact.icon}
+                  color="white"
+                  size={40}
+                  class="mx-auto"
+                />
+                <p class="text-text-light text-center">{contact.text}</p>
+              </li>
+            ))
+          }
+        </ul>
+        <ul class="flex justify-between mt-4 max-w-[150px] mx-auto">
+          {
+            socialLinks.map((link) => (
+              <a href={link.link}>
+                <Icon name={link.name} size={24} color="white" />
+              </a>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </section>
+</Layout>
