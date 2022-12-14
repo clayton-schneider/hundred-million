@@ -23,20 +23,23 @@ import { Icon } from "astro-icon";
 import PriamryBtn from "@components/buttons/PrimaryBtn";
 ---
 
-<section class="text-text-light">
-  <footer class="px-edge py-12 bg-primary">
-    <div class="max-w-screen-2xl mx-auto flex justify-between">
+<section class="bg-primary text-text-light">
+  <footer class="px-edge py-12">
+    <div
+      class="max-w-screen-2xl mx-auto flex flex-col lg:flex-row items-center lg:items-start justify-between gap-5"
+    >
       <div>
         <Image
           src={import("@img/hundred-million-logo-white.png")}
           alt="hundred million logo"
+          class="mx-auto lg:mx-0"
         />
-        <h6 class="mt-6 font-bebas text-lg">
+        <h6 class="mt-6 font-bebas text-lg text-center lg:text-left">
           A 100 Million Organizaiton. <a href="https://100million.org"
             >Visit Parent Org</a
           >
         </h6>
-        <div class="flex space-x-2 mt-6">
+        <div class="flex justify-center lg:justify-start space-x-2 mt-6">
           {
             socialLinks.map((link) => (
               <a href={link.link}>
@@ -46,7 +49,7 @@ import PriamryBtn from "@components/buttons/PrimaryBtn";
           }
         </div>
       </div>
-      <div>
+      <div class="text-center lg:text-left">
         <p class="text-4xl font-bebas">
           Get <span class="text-text-dark">Involved</span>
         </p>
@@ -60,7 +63,7 @@ import PriamryBtn from "@components/buttons/PrimaryBtn";
           }
         </ul>
       </div>
-      <div>
+      <div class="text-center lg:text-left">
         <p class="text-4xl font-bebas">
           Get <span class="text-text-dark">Educated</span>
         </p>
@@ -74,11 +77,11 @@ import PriamryBtn from "@components/buttons/PrimaryBtn";
           }
         </ul>
       </div>
-      <div>
+      <div class="text-center">
         <p class="text-4xl font-bebas">
           Stay <span class="text-text-dark">Up To Date</span>
         </p>
-        <div class="">
+        <div class="flex flex-wrap justify-center gap-2">
           <input
             class="bg-transparent border border-black focus:outline-none rounded-full py-3 w-64 px-4 text-sm text-text-light placeholder:text-text-light"
             type="text"
@@ -89,7 +92,7 @@ import PriamryBtn from "@components/buttons/PrimaryBtn";
       </div>
     </div>
   </footer>
-  <div class="bg-primary-darker py-4">
+  <div class="px-edge bg-primary-darker py-4">
     <p class="font-bebas text-xl text-center">
       Copyright © 2022 100 Million Us | All Right Reserved | Powered By <a
         href="https://www.simply-sprout.com">Simply Sprout</a
