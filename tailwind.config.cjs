@@ -1,5 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 
+const defaultTheme = require("tailwindcss/defaultTheme");
+
 const FONT_FAMILY_BASE = [
   "system-ui",
   "-apple-system",
@@ -31,6 +33,10 @@ module.exports = {
       },
       padding: {
         edge: "2.5%",
+      },
+      screens: {
+        xs: "475px",
+        ...defaultTheme.screens,
       },
     },
   },
