@@ -1,15 +1,37 @@
 ---
+import { Image } from "@astrojs/image/components";
 import PrimaryBtn from "@components/buttons/PrimaryBtn";
+
+export interface Props {
+  data: {
+    img: {
+      src: any;
+      alt: string;
+    };
+    title: string;
+    text: string;
+    link: {
+      to: string;
+      text: string;
+    };
+  };
+}
+const { data } = Astro.props;
 ---
 
-<div class="bg-black w-[477px] h-[790px]">
-  <div class="bg-white w-full h-1/2"></div>
-  <div class="text-center text-text-light max-w-sm mx-auto">
-    <h6 class="font-bebas text-6xl">Placeholder</h6>
-    <p class="text-lg">
-      This is just placeholder text. Don’t be alarmed, this is just here to fill
-      up space since your finalized copy isn’t ready yet.
-    </p>
-    <PrimaryBtn color="primary">Get Involved</PrimaryBtn>
+<div class="bg-black max-w-[475px]">
+  <div class="w-full">
+    <Image
+      src={data.img.src}
+      alt={data.img.alt}
+      class="w-full h-full object-cover"
+    />
+  </div>
+  <div class="py-10 text-center text-text-light max-w-sm mx-auto">
+    <h6 class="font-bebas text-6xl">{data.title}</h6>
+    <p class="mt-2 text-lg">{data.text}</p>
+    <PrimaryBtn to={data.link.to} color="primary" className="mt-5"
+      >{data.link.text}</PrimaryBtn
+    >
   </div>
 </div>

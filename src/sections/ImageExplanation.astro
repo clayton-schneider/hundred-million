@@ -14,8 +14,12 @@ const { bottomBanner = true, reversed = false } = Astro.props;
     class={(reversed ? "flex-row-reverse" : "") +
       " max-w-screen-2xl mx-auto flex justify-between gap-40 relative z-10"}
   >
-    <div>
-      <div class="w-[690px] h-[1080px] bg-gray-400"></div>
+    <div class="grow shrink-0">
+      <Image
+        src={import("@img/current-campaign.jpg")}
+        alt="current campaign"
+        class="w-[690px] h-[1080px] object-cover"
+      />
     </div>
     <div class="mt-20">
       <slot />

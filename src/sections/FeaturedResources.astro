@@ -1,5 +1,47 @@
 ---
 import VerticalCard from "@components/cards/VerticalCard.astro";
+
+const cards = [
+  {
+    img: {
+      src: import("@img/join-the-fight-teachers.jpg"),
+      alt: "teachers join 100 million us",
+    },
+
+    title: "Placeholder",
+    text: "This is just placeholder text. Don’t be alarmed, this is just here to fill up space since your finalized copy isn’t ready yet. ",
+    link: {
+      text: "Get Involved",
+      to: "/teachers",
+    },
+  },
+  {
+    img: {
+      src: import("@img/join-the-fight-individuals.jpg"),
+      alt: "individuals join 100 million us",
+    },
+
+    title: "Placeholder",
+    text: "This is just placeholder text. Don’t be alarmed, this is just here to fill up space since your finalized copy isn’t ready yet. ",
+    link: {
+      text: "Get Involved",
+      to: "/individuals",
+    },
+  },
+  {
+    img: {
+      src: import("@img/join-the-fight-organizations.jpg"),
+      alt: "organizations join 100 million us",
+    },
+
+    title: "Placeholder",
+    text: "This is just placeholder text. Don’t be alarmed, this is just here to fill up space since your finalized copy isn’t ready yet. ",
+    link: {
+      text: "Get Involved",
+      to: "/organizations",
+    },
+  },
+];
 ---
 
 <section class="bg-primary px-edge py-36">
@@ -10,7 +52,7 @@ import VerticalCard from "@components/cards/VerticalCard.astro";
       Featured <br /><span class="text-text-dark text-[130px]">Resources</span>
     </h2>
     <div class="flex justify-center space-x-11">
-      {[...Array(3).keys()].map((num) => <VerticalCard />)}
+      {cards.map((card) => <VerticalCard data={card} />)}
     </div>
   </div>
 </section>
