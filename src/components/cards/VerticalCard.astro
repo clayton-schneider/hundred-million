@@ -3,6 +3,7 @@ import { Image } from "@astrojs/image/components";
 import PrimaryBtn from "@components/buttons/PrimaryBtn";
 
 export interface Props {
+  className?: string;
   data: {
     img: {
       src: any;
@@ -16,10 +17,10 @@ export interface Props {
     };
   };
 }
-const { data } = Astro.props;
+const { className, data } = Astro.props;
 ---
 
-<div class="bg-black max-w-[475px]">
+<div class={(className ? className : "") + " bg-black max-w-[475px]"}>
   <div class="w-full">
     <Image
       src={data.img.src}
@@ -27,8 +28,8 @@ const { data } = Astro.props;
       class="w-full h-full object-cover"
     />
   </div>
-  <div class="py-10 text-center text-text-light max-w-sm mx-auto">
-    <h6 class="font-bebas text-6xl">{data.title}</h6>
+  <div class="py-10 px-4 text-center text-text-light max-w-sm mx-auto">
+    <h6 class="font-bebas text-4xl md:text-6xl">{data.title}</h6>
     <p class="mt-2 text-lg">{data.text}</p>
     <PrimaryBtn to={data.link.to} color="primary" className="mt-5"
       >{data.link.text}</PrimaryBtn

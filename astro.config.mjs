@@ -11,9 +11,18 @@ import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind({
-    config: {
-      applyBaseStyles: false
-    }
-  }), image(), react()]
+  integrations: [
+    tailwind({
+      config: {
+        applyBaseStyles: false,
+      },
+    }),
+    image(),
+    react(),
+  ],
+  vite: {
+    ssr: {
+      noExternal: ["@splidejs/splide"],
+    },
+  },
 });

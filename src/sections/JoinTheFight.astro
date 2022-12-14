@@ -1,5 +1,5 @@
 ---
-import VerticalCard from "@components/cards/VerticalCard.astro";
+import CardCarosel from "@components/cards/CardCarousel.astro";
 
 const cards = [
   {
@@ -44,10 +44,12 @@ const cards = [
 ];
 ---
 
-<section class="bg-primary px-edge py-36">
+<section class="bg-primary px-edge py-16 lg:py-36">
   <div class="max-w-screen-2xl mx-auto">
     <div class="max-w-6xl mx-auto text-text-light text-center">
-      <h2 class="font-bebas text-[130px] text-text-light leading-none">
+      <h2
+        class="font-bebas text-8xl sm:text-[130px] text-text-light leading-none"
+      >
         Join The <span class="text-text-dark">Fight</span>
       </h2>
       <p class="text-lg">
@@ -57,8 +59,8 @@ const cards = [
         real content.
       </p>
     </div>
-    <div class="mt-10 flex justify-center space-x-11">
-      {cards.map((card) => <VerticalCard data={card} />)}
+    <div class="mt-10">
+      <CardCarosel label="join the fight carosel" cards={cards} />
     </div>
   </div>
 </section>

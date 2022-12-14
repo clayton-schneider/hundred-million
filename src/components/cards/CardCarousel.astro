@@ -1,0 +1,61 @@
+---
+import VerticalCard from "./VerticalCard.astro";
+
+export interface Props {
+  label: string;
+  cards: {
+    img: {
+      src: any;
+      alt: string;
+    };
+    title: string;
+    text: string;
+    link: {
+      to: string;
+      text: string;
+    };
+  }[];
+}
+
+const { label, cards } = Astro.props;
+---
+
+<section class="splide" aria-label={label}>
+  <div class="splide__track">
+    <ul class="splide__list lg:!flex lg:justify-center lg:space-x-11">
+      {
+        cards.map((card) => (
+          <VerticalCard data={card} className="splide__slide lg:!shrink" />
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<script>
+  import Splide from "@splidejs/splide";
+  import "@splidejs/splide/css/core";
+
+  new Splide(".splide", {
+    destroy: true,
+    lazyLoad: true,
+    autoplay: true,
+    interval: 3000,
+    type: "loop",
+    gap: "10px",
+    perPage: 3,
+    perMove: 1,
+    breakpoints: {
+      "1024": {
+        perPage: 1,
+        destroy: false,
+      },
+    },
+    classes: {
+      arrow: "hidden",
+      pagination:
+        "flex justify-center mt-2 space-x-1 [&>li]:flex [&>li]:items-center h-[14px]",
+      page: "w-3 h-3 bg-gray-100/20   rounded-full transition-all duration-300 [&.is-active]:bg-black  [&.is-active]:w-[14px] [&.is-active]:h-[14px]",
+    },
+  }).mount();
+</script>
