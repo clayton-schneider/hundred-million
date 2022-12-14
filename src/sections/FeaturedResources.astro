@@ -1,5 +1,5 @@
 ---
-import VerticalCard from "@components/cards/VerticalCard.astro";
+import CardCarousel from "@components/cards/CardCarousel.astro";
 
 const cards = [
   {
@@ -51,8 +51,8 @@ const cards = [
     >
       Featured <br /><span class="text-text-dark text-[130px]">Resources</span>
     </h2>
-    <div class="flex justify-center space-x-11">
-      {cards.map((card) => <VerticalCard data={card} />)}
+    <div>
+      <CardCarousel label="featured resources carousel" cards={cards} />
     </div>
   </div>
 </section>

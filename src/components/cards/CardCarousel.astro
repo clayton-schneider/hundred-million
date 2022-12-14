@@ -20,7 +20,7 @@ export interface Props {
 const { label, cards } = Astro.props;
 ---
 
-<section class="splide" aria-label={label}>
+<section class="splide card-carousel" aria-label={label}>
   <div class="splide__track">
     <ul class="splide__list lg:!flex lg:justify-center lg:space-x-11">
       {
@@ -36,26 +36,30 @@ const { label, cards } = Astro.props;
   import Splide from "@splidejs/splide";
   import "@splidejs/splide/css/core";
 
-  new Splide(".splide", {
-    destroy: true,
-    lazyLoad: true,
-    autoplay: true,
-    interval: 3000,
-    type: "loop",
-    gap: "10px",
-    perPage: 3,
-    perMove: 1,
-    breakpoints: {
-      "1024": {
-        perPage: 1,
-        destroy: false,
+  const cardCarousels = document.getElementsByClassName("card-carousel");
+
+  for (let i = 0; i < cardCarousels.length; i++) {
+    new Splide(cardCarousels[i] as HTMLElement, {
+      destroy: true,
+      lazyLoad: true,
+      autoplay: true,
+      interval: 3000,
+      type: "loop",
+      gap: "10px",
+      perPage: 3,
+      perMove: 1,
+      breakpoints: {
+        "1024": {
+          perPage: 1,
+          destroy: false,
+        },
       },
-    },
-    classes: {
-      arrow: "hidden",
-      pagination:
-        "flex justify-center mt-2 space-x-1 [&>li]:flex [&>li]:items-center h-[14px]",
-      page: "w-3 h-3 bg-gray-100/20   rounded-full transition-all duration-300 [&.is-active]:bg-black  [&.is-active]:w-[14px] [&.is-active]:h-[14px]",
-    },
-  }).mount();
+      classes: {
+        arrow: "hidden",
+        pagination:
+          "flex justify-center mt-2 space-x-1 [&>li]:flex [&>li]:items-center h-[14px]",
+        page: "w-3 h-3 bg-gray-100/20   rounded-full transition-all duration-300 [&.is-active]:bg-black  [&.is-active]:w-[14px] [&.is-active]:h-[14px]",
+      },
+    }).mount();
+  }
 </script>
