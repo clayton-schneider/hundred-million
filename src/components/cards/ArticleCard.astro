@@ -3,10 +3,12 @@ import { Icon } from "astro-icon";
 ---
 
 <div>
-  <div class="bg-gray-400 w-[700px] h-[415px]"></div>
+  <div class="bg-gray-400 w-full max-w-[700px] h-[415px]"></div>
   <div class="mt-8">
     <p class="font-bold text-primary text-lg">November 24, 2022</p>
-    <div class="flex justify-between items-center">
+    <div
+      class="flex flex-col lg:flex-row justify-between items-start lg:items-center"
+    >
       <p class="font-bebas text-6xl text-text-light">Placeholder</p>
       <a
         class="font-bebas text-3xl text-text-light flex items-center space-x-4"

@@ -3,15 +3,21 @@ import PrimaryBtn from "@components/buttons/PrimaryBtn";
 import ArticleCard from "@components/cards/ArticleCard.astro";
 ---
 
-<section class="bg-black px-edge py-36">
+<section class="bg-black px-edge py-16 lg:py-36">
   <div class="max-w-screen-2xl mx-auto">
-    <div class="flex justify-between items-center">
-      <h2 class="font-bebas text-[130px] text-text-light">
+    <div class="flex flex-col xs:flex-row justify-between gap-2 items-center">
+      <h2
+        class="font-bebas text-7xl md:text-[130px] text-text-light text-center xs:text-left leading-none"
+      >
         Latest <span class="text-primary">Articles</span>
       </h2>
-      <PrimaryBtn color="primary">View All Articles</PrimaryBtn>
+      <PrimaryBtn
+        color="primary"
+        className="grow shrink-0 max-w-[280px] text-center"
+        >View All Articles</PrimaryBtn
+      >
     </div>
-    <div class="flex justify-between">
+    <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-10">
       {[...Array(2).keys()].map((num) => <ArticleCard />)}
     </div>
   </div>

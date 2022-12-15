@@ -2,12 +2,14 @@
 import PrimaryBtn from "@components/buttons/PrimaryBtn";
 ---
 
-<section class="bg-dark px-edge py-36">
+<section class="bg-dark px-edge py-16 lg:py-36">
   <div class="max-w-screen-2xl mx-auto text-center">
-    <h2 class="font-bebas text-text-light text-[130px]">
+    <h2
+      class="font-bebas text-text-light text-7xl md:text-[130px] leading-none"
+    >
       We Work With <span class="text-primary">Organizations</span>
     </h2>
-    <div class="flex justify-between">
+    <div class="mt-2 lg:mt-5 flex justify-between">
       {
         [...Array(5).keys()].map((num) => (
           <div class="bg-white p-4">
@@ -16,7 +18,7 @@ import PrimaryBtn from "@components/buttons/PrimaryBtn";
         ))
       }
     </div>
-    <PrimaryBtn className="mt-16" color="primary"
+    <PrimaryBtn className="mt-10 lg:mt-16" color="primary"
       >View All Organizations</PrimaryBtn
     >
   </div>
