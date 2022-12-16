@@ -7,13 +7,13 @@ async function fetchAPI(query) {
     body: JSON.stringify({ query }),
   });
 
-  const json = await res.json();
-  if (json.errors) {
-    console.log(json.errors);
-    throw new Error("Failed to fetch API");
+  try {
+    const json = await res.json();
+    return json.data;
+  } catch (err) {
+    console.log("error on res.json");
+    console.error(err);
   }
-
-  return json.data;
 }
 
 export async function getLatestArticles() {
