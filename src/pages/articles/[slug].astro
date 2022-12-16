@@ -1,0 +1,24 @@
+---
+import Layout from "src/layouts/Layout.astro";
+import { getAllArticleSlugs, getArticleBySlug } from "src/utils/fetchApi";
+
+export async function getStaticPaths() {
+  const articleSlugs = await getAllArticleSlugs();
+
+  return articleSlugs.map(({ slug }) => {
+    return {
+      params: {
+        slug: slug,
+      },
+    };
+  });
+}
+
+const { slug } = Astro.params;
+const article = await getArticleBySlug(slug);
+---
+
+<Layout title="this is just a test">
+  <h1>{article.title}</h1>
+  <article class="prose" set:html={article.body} />
+</Layout>

@@ -40,3 +40,33 @@ export async function getLatestArticles() {
   );
   return data.articles.nodes;
 }
+
+export async function getAllArticleSlugs() {
+  const data = await fetchAPI(
+    `
+    {
+  articles {
+    nodes {
+      slug
+    }
+  }
+}
+    `
+  );
+
+  return data.articles.nodes;
+}
+
+export async function getArticleBySlug(slug) {
+  const data = await fetchAPI(
+    `
+  {
+  article(id: "${slug}", idType: SLUG) {
+    body
+    title
+  }
+}
+  `
+  );
+  return data.article;
+}
