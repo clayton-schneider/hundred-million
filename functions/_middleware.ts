@@ -1,7 +1,7 @@
-import mailChannelsPlugin from "@cloudflare/pages-plugin-mailchannels";
+import mailchannelsPlugin from "@cloudflare/pages-plugin-mailchannels";
 
-export const onRequest: PagesFunction = (context) =>
-  mailChannelsPlugin({
+const mailMiddleware: PagesFunction = (context) =>
+  mailchannelsPlugin({
     personalizations: [
       {
         to: [{ name: "Clayton Schneider", email: "clayton@simply-sprout.com" }],
@@ -15,3 +15,5 @@ export const onRequest: PagesFunction = (context) =>
       return Response.redirect("https://hundred-million.pages.dev/about", 302);
     },
   })(context);
+
+export const onRequest: PagesFunction[] = [mailMiddleware];
