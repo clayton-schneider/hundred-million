@@ -35,7 +35,7 @@ const NavMenu = ({ links }: Props) => {
           </li>
         ))}
         <PrimaryBtn
-          to="/request-a-quote"
+          to="/join-us"
           className="!block w-full text-center lg:text-left lg:w-auto"
         >
           Join Us
