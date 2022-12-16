@@ -7,7 +7,7 @@ const Hamburger = ({ isOpen, clicked, color }: Props) => {
   return (
     <button
       onClick={clicked}
-      className="relative z-50 cursor-pointer xl:hidden"
+      className="relative z-50 cursor-pointer lg:hidden"
     >
       <span
         className={
