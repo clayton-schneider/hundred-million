@@ -4,11 +4,13 @@ import Layout from "../layouts/Layout.astro";
 import ImageExplanation from "@sections/ImageExplanation.astro";
 import FeaturedResources from "@sections/FeaturedResources.astro";
 import LatestArticles from "@sections/LatestArticles.astro";
+
+import organizationsImage from "@img/organizations-action-plan.jpg";
 ---
 
 <Layout title="Organizations">
   <PageBanner>Organizations</PageBanner>
-  <ImageExplanation bottomBanner={false}>
+  <ImageExplanation bottomBanner={false} image={organizationsImage}>
     <h2 class="font-bebas leading-none text-text-light text-[100px]">
       Your Action <br /><span class="text-primary text-[130px]">Plan</span>
     </h2>
@@ -27,7 +29,7 @@ import LatestArticles from "@sections/LatestArticles.astro";
       }
     </div>
   </ImageExplanation>
-  <ImageExplanation reversed={true}>
+  <ImageExplanation reversed={true} image={organizationsImage}>
     <h2 class="font-bebas leading-none text-text-light text-[100px]">
       Join Our Networkd Of Organizations<br /><span
         class="text-primary text-[130px]">Across The US</span

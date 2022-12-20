@@ -8,11 +8,13 @@ import Organizations from "@sections/Organizations.astro";
 import LatestArticles from "@sections/LatestArticles.astro";
 import FeaturedResources from "@sections/FeaturedResources.astro";
 import UpToDate from "@sections/UpToDate.astro";
+
+import currentCampaign from "@img/current-campaign.jpg";
 ---
 
 <Layout title="Welcome to Astro.">
   <Hero />
-  <ImageExplanation>
+  <ImageExplanation image={currentCampaign}>
     <div class="text-center lg:text-left">
       <h2
         class="font-bebas leading-none text-text-light text-7xl md:text-[100px]"

@@ -4,11 +4,13 @@ import PageBanner from "@sections/PageBanner.astro";
 import ImageExplanation from "@sections/ImageExplanation.astro";
 import FeaturedResources from "@sections/FeaturedResources.astro";
 import LatestArticles from "@sections/LatestArticles.astro";
+
+import individualImg from "@img/individuals-action-plan.jpg";
 ---
 
 <Layout title="Individuals">
   <PageBanner>Individuals</PageBanner>
-  <ImageExplanation>
+  <ImageExplanation image={individualImg}>
     <h2 class="font-bebas leading-none text-text-light text-[100px]">
       Your Action <br /><span class="text-primary text-[130px]">Plan</span>
     </h2>

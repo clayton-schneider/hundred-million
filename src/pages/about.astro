@@ -7,12 +7,14 @@ import PageBanner from "@sections/PageBanner.astro";
 import Team from "@sections/Team.astro";
 import TheWhy from "@sections/TheWhy.astro";
 import Layout from "src/layouts/Layout.astro";
+
+import howItBeganImg from "@img/about-how-it-began.jpg";
 ---
 
 <Layout title="About Us">
   <PageBanner>About</PageBanner>
   <TheWhy />
-  <ImageExplanation reversed={true}>
+  <ImageExplanation reversed={true} image={howItBeganImg}>
     <div class="text-center lg:text-left">
       <h2
         class="font-bebas leading-none text-text-light text-7xl md:text-[100px]"

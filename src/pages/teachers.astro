@@ -4,11 +4,13 @@ import Layout from "../layouts/Layout.astro";
 import ImageExplanation from "@sections/ImageExplanation.astro";
 import FeaturedResources from "@sections/FeaturedResources.astro";
 import LatestArticles from "@sections/LatestArticles.astro";
+
+import teacherImg from "@img/teacher-action-plan.jpg";
 ---
 
 <Layout title="Teachers">
   <PageBanner>Teachers</PageBanner>
-  <ImageExplanation>
+  <ImageExplanation image={teacherImg}>
     <h2 class="font-bebas leading-none text-text-light text-[100px]">
       Your Action <br /><span class="text-primary text-[130px]">Plan</span>
     </h2>
