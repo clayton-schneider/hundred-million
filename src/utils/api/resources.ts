@@ -39,8 +39,8 @@ export async function getResourcesForArchive() {
   resources {
     nodes {
       slug
-      date
       title
+      summary
       featuredImage {
         node {
           altText

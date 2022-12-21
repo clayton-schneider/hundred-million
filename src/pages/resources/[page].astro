@@ -1,0 +1,35 @@
+---
+import Layout from "src/layouts/Layout.astro";
+import ResourceCard from "@components/cards/ResourceCard.astro";
+import { getResourcesForArchive } from "src/utils/api/resources";
+import PageBanner from "@sections/PageBanner.astro";
+
+export async function getStaticPaths({ paginate }) {
+  const allResources = await getResourcesForArchive();
+
+  return paginate(allResources, { pageSize: 3 });
+}
+
+const { page } = Astro.props;
+---
+
+<Layout title="Resources | 100 Million US">
+  <PageBanner>Our Articles</PageBanner>
+  <section class="bg-black px-edge py-20">
+    <div class="max-w-screen-2xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10">
+        {page.data.map((resource) => <ResourceCard data={resource} />)}
+      </div>
+      <div class="mt-10 flex justify-between font-bebas text-primary text-2xl">
+        {page.url.prev ? <a href={page.url.prev}>Previous Page</a> : null}
+        {
+          page.url.next ? (
+            <a class={page.url.prev ? null : "ml-auto"} href={page.url.next}>
+              Next Page
+            </a>
+          ) : null
+        }
+      </div>
+    </div>
+  </section>
+</Layout>
