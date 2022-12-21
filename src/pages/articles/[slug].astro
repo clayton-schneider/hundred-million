@@ -1,7 +1,7 @@
 ---
 import Layout from "src/layouts/Layout.astro";
 import { Image } from "@astrojs/image/components";
-import { getAllArticleSlugs, getArticleBySlug } from "src/utils/fetchApi";
+import { getAllArticleSlugs, getArticleBySlug } from "src/utils/api/articles";
 import formatDate from "src/utils/formatDate";
 
 export async function getStaticPaths() {

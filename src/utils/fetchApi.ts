@@ -1,4 +1,5 @@
 import WORDPRESSURL from "./wordpressUrl";
+
 async function fetchAPI(query) {
   const headers = { "Content-Type": "application/json" };
   const res = await fetch(WORDPRESSURL, {
@@ -16,96 +17,4 @@ async function fetchAPI(query) {
   }
 }
 
-export async function getLatestArticles() {
-  const data = await fetchAPI(
-    `{
-  articles(first: 2) {
-    nodes {
-      slug
-      date
-      title
-      featuredImage {
-        node {
-          altText
-          sourceUrl
-          mediaDetails{
-            height
-            width
-          }
-        }
-      }
-    }
-  }
-}`
-  );
-  return data.articles.nodes;
-}
-
-export async function getArticlesForArchive() {
-  const data = await fetchAPI(
-    `
-{
-  articles {
-    nodes {
-      slug
-      date
-      title
-      featuredImage {
-        node {
-          altText
-          sourceUrl
-          mediaDetails {
-            height
-            width
-          }
-        }
-      }
-    }
-  }
-}
-`
-  );
-
-  return data.articles.nodes;
-}
-
-export async function getAllArticleSlugs() {
-  const data = await fetchAPI(
-    `
-    {
-  articles {
-    nodes {
-      slug
-    }
-  }
-}
-    `
-  );
-
-  return data.articles.nodes;
-}
-
-export async function getArticleBySlug(slug) {
-  const data = await fetchAPI(
-    `
-  {
-  article(id: "${slug}", idType: SLUG) {
-    date
-    body
-    title
-    featuredImage {
-      node {
-        altText
-        sourceUrl
-        mediaDetails {
-          height
-          width
-        }
-      }
-    }
-  }
-}
-  `
-  );
-  return data.article;
-}
+export default fetchAPI;

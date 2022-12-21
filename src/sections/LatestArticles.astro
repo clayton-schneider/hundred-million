@@ -2,7 +2,7 @@
 import PrimaryBtn from "@components/buttons/PrimaryBtn";
 import ArticleCard from "@components/cards/ArticleCard.astro";
 
-import { getLatestArticles } from "src/utils/fetchApi";
+import { getLatestArticles } from "src/utils/api/articles";
 
 const articles = await getLatestArticles();
 ---

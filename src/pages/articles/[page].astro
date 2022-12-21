@@ -1,8 +1,9 @@
 ---
 import Layout from "src/layouts/Layout.astro";
 import ArticleCard from "@components/cards/ArticleCard.astro";
-import { getArticlesForArchive } from "src/utils/fetchApi";
+import { getArticlesForArchive } from "src/utils/api/articles";
 import PageBanner from "@sections/PageBanner.astro";
+
 export async function getStaticPaths({ paginate }) {
   const allArticles = await getArticlesForArchive();
 
