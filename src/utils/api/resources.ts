@@ -76,7 +76,7 @@ export async function getAllResourcesSlugs() {
   return data.resources.nodes;
 }
 
-export async function getResourcesBySlug(slug) {
+export async function getResourceBySlug(slug) {
   const data = await fetchAPI(
     `
   {

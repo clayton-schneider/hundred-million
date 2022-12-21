@@ -1,0 +1,49 @@
+---
+import Layout from "src/layouts/Layout.astro";
+import { Image } from "@astrojs/image/components";
+import {
+  getAllResourcesSlugs,
+  getResourceBySlug,
+} from "src/utils/api/resources";
+import formatDate from "src/utils/formatDate";
+
+export async function getStaticPaths() {
+  const articleSlugs = await getAllResourcesSlugs();
+
+  return articleSlugs.map(({ slug }) => {
+    return {
+      params: {
+        slug: slug,
+      },
+    };
+  });
+}
+
+const { slug } = Astro.params;
+const resource = await getResourceBySlug(slug);
+---
+
+<Layout title={`${resource.title} | 100 Million US`}>
+  <section class="bg-black px-edge py-10">
+    <div class="max-w-screen-lg mx-auto">
+      <div class="w-full relative pb-[40%]">
+        <Image
+          class="absolute inset-0 w-full h-full object-cover"
+          src={resource.featuredImage.node.sourceUrl}
+          alt={resource.featuredImage.node.altText}
+          format="jpeg"
+          width={resource.featuredImage.node.mediaDetails.width}
+          height={resource.featuredImage.node.mediaDetails.height}
+        />
+      </div>
+      <div class="mt-20 text-text-light">
+        <p class="font-bold text-xl text-primary">
+          {formatDate(resource.date)}
+        </p>
+        <h1 class="font-bebas text-6xl">{resource.title}</h1>
+
+        <article class="prose prose-img:mx-auto" set:html={resource.body} />
+      </div>
+    </div>
+  </section>
+</Layout>
