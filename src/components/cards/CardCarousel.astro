@@ -1,23 +1,14 @@
 ---
 import VerticalCard from "./VerticalCard.astro";
+import ResourceCard from "./ResourceCard.astro";
 
 export interface Props {
   label: string;
-  cards: {
-    img: {
-      src: any;
-      alt: string;
-    };
-    title: string;
-    text: string;
-    link: {
-      to: string;
-      text: string;
-    };
-  }[];
+  type?: "vertical" | "resource";
+  cards: typeof VerticalCard[] | typeof ResourceCard[];
 }
 
-const { label, cards } = Astro.props;
+const { label, cards, type = "vertical" } = Astro.props;
 ---
 
 <section class="splide card-carousel" aria-label={label}>
@@ -25,7 +16,14 @@ const { label, cards } = Astro.props;
     <ul class="splide__list lg:!flex lg:justify-center lg:space-x-11">
       {
         cards.map((card) => (
-          <VerticalCard data={card} className="splide__slide lg:!shrink" />
+          <>
+            {type === "resource" && (
+              <ResourceCard data={card} classname="splide__slide lg:!shrink" />
+            )}
+            {type === "vertical" && (
+              <VerticalCard data={card} className="splide__slide lg:!shrink" />
+            )}
+          </>
         ))
       }
     </ul>

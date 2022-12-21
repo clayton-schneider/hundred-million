@@ -1,47 +1,9 @@
 ---
 import CardCarousel from "@components/cards/CardCarousel.astro";
+import ResourceCard from "@components/cards/ResourceCard.astro";
+import { getFeaturedResources } from "src/utils/api/resources";
 
-const cards = [
-  {
-    img: {
-      src: import("@img/join-the-fight-teachers.jpg"),
-      alt: "teachers join 100 million us",
-    },
-
-    title: "Placeholder",
-    text: "This is just placeholder text. Don’t be alarmed, this is just here to fill up space since your finalized copy isn’t ready yet. ",
-    link: {
-      text: "Get Involved",
-      to: "/teachers",
-    },
-  },
-  {
-    img: {
-      src: import("@img/join-the-fight-individuals.jpg"),
-      alt: "individuals join 100 million us",
-    },
-
-    title: "Placeholder",
-    text: "This is just placeholder text. Don’t be alarmed, this is just here to fill up space since your finalized copy isn’t ready yet. ",
-    link: {
-      text: "Get Involved",
-      to: "/individuals",
-    },
-  },
-  {
-    img: {
-      src: import("@img/join-the-fight-organizations.jpg"),
-      alt: "organizations join 100 million us",
-    },
-
-    title: "Placeholder",
-    text: "This is just placeholder text. Don’t be alarmed, this is just here to fill up space since your finalized copy isn’t ready yet. ",
-    link: {
-      text: "Get Involved",
-      to: "/organizations",
-    },
-  },
-];
+const resources = await getFeaturedResources();
 ---
 
 <section class="bg-primary px-edge py-16 lg:py-36">
@@ -54,7 +16,11 @@ const cards = [
       >
     </h2>
     <div>
-      <CardCarousel label="featured resources carousel" cards={cards} />
+      <CardCarousel
+        label="featured resources carousel"
+        cards={resources}
+        type="resource"
+      />
     </div>
   </div>
 </section>

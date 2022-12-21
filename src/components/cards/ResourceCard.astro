@@ -1,0 +1,47 @@
+---
+import { Image } from "@astrojs/image/components";
+import PrimaryBtn from "@components/buttons/PrimaryBtn";
+
+type ResourceCard = {
+  slug: string;
+  title: string;
+  summary: string;
+  featuredImage: {
+    node: {
+      altText: string;
+      sourceUrl: string;
+      mediaDetails: {
+        height: number;
+        width: number;
+      };
+    };
+  };
+};
+
+export interface Props {
+  classname?: string;
+  data: ResourceCard;
+}
+
+const { className, data } = Astro.props;
+---
+
+<div class={(className ? className : "") + " bg-black max-w-[475px]"}>
+  <div class="w-full">
+    <Image
+      src={data.featuredImage.node.sourceUrl}
+      alt={data.featuredImage.node.altText}
+      width={data.featuredImage.node.mediaDetails.width}
+      height={data.featuredImage.node.mediaDetails.height}
+      format="jpeg"
+      class="w-full h-full object-cover"
+    />
+  </div>
+  <div class="py-10 px-4 text-center text-text-light max-w-sm mx-auto">
+    <h6 class="font-bebas text-4xl md:text-6xl">{data.title}</h6>
+    <p class="mt-2 text-lg">{data.summary}</p>
+    <PrimaryBtn to={`/resources/${data.slug}`} color="primary" className="mt-5"
+      >Read More</PrimaryBtn
+    >
+  </div>
+</div>

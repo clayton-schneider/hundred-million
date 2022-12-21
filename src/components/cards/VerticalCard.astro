@@ -2,20 +2,22 @@
 import { Image } from "@astrojs/image/components";
 import PrimaryBtn from "@components/buttons/PrimaryBtn";
 
+type VerticalCard = {
+  img: {
+    src: any;
+    alt: string;
+  };
+  title: string;
+  text: string;
+  link: {
+    to: string;
+    text: string;
+  };
+};
+
 export interface Props {
   className?: string;
-  data: {
-    img: {
-      src: any;
-      alt: string;
-    };
-    title: string;
-    text: string;
-    link: {
-      to: string;
-      text: string;
-    };
-  };
+  data: VerticalCard;
 }
 const { className, data } = Astro.props;
 ---
