@@ -1,6 +1,8 @@
 ---
 import Layout from "src/layouts/Layout.astro";
+import { Image } from "@astrojs/image/components";
 import { getAllArticleSlugs, getArticleBySlug } from "src/utils/fetchApi";
+import formatDate from "src/utils/formatDate";
 
 export async function getStaticPaths() {
   const articleSlugs = await getAllArticleSlugs();
@@ -18,7 +20,25 @@ const { slug } = Astro.params;
 const article = await getArticleBySlug(slug);
 ---
 
-<Layout title="this is just a test">
-  <h1>{article.title}</h1>
-  <article class="prose" set:html={article.body} />
+<Layout title={`${article.title} | 100 Million US`}>
+  <section class="bg-black px-edge py-10">
+    <div class="max-w-screen-lg mx-auto">
+      <div class="w-full relative pb-[40%]">
+        <Image
+          class="absolute inset-0 w-full h-full object-cover"
+          src={article.featuredImage.node.sourceUrl}
+          alt={article.featuredImage.node.altText}
+          format="jpeg"
+          width={article.featuredImage.node.mediaDetails.width}
+          height={article.featuredImage.node.mediaDetails.height}
+        />
+      </div>
+      <div class="mt-20 text-text-light">
+        <p class="font-bold text-xl text-primary">{formatDate(article.date)}</p>
+        <h1 class="font-bebas text-6xl">{article.title}</h1>
+
+        <article class="prose prose-img:mx-auto" set:html={article.body} />
+      </div>
+    </div>
+  </section>
 </Layout>

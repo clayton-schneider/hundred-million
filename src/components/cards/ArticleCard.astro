@@ -1,6 +1,7 @@
 ---
 import { Icon } from "astro-icon";
 import { Image } from "@astrojs/image/components";
+import formatDate from "src/utils/formatDate";
 
 export interface Props {
   data: {
@@ -21,14 +22,6 @@ export interface Props {
 }
 
 const { data } = Astro.props;
-
-const formatDate = (date: string) => {
-  return new Date(date).toLocaleDateString("en-gb", {
-    month: "long",
-    day: "numeric",
-    year: "numeric",
-  });
-};
 ---
 
 <div class="flex flex-col h-full">

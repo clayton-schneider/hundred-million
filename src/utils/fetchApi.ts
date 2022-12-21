@@ -90,8 +90,19 @@ export async function getArticleBySlug(slug) {
     `
   {
   article(id: "${slug}", idType: SLUG) {
+    date
     body
     title
+    featuredImage {
+      node {
+        altText
+        sourceUrl
+        mediaDetails {
+          height
+          width
+        }
+      }
+    }
   }
 }
   `
