@@ -1,9 +1,13 @@
 ---
 import CardCarousel from "@components/cards/CardCarousel.astro";
-import ResourceCard from "@components/cards/ResourceCard.astro";
 import { getFeaturedResources } from "src/utils/api/resources";
 
-const resources = await getFeaturedResources();
+export interface Props {
+  targetAudience?: "general" | "teachers" | "individuals" | "organizations";
+}
+
+const { targetAudience = "general" } = Astro.props;
+const resources = await getFeaturedResources(targetAudience);
 ---
 
 <section class="bg-primary px-edge py-16 lg:py-36">
