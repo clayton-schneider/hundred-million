@@ -41,6 +41,34 @@ export async function getLatestArticles() {
   return data.articles.nodes;
 }
 
+export async function getArticlesForArchive() {
+  const data = await fetchAPI(
+    `
+{
+  articles {
+    nodes {
+      slug
+      date
+      title
+      featuredImage {
+        node {
+          altText
+          sourceUrl
+          mediaDetails {
+            height
+            width
+          }
+        }
+      }
+    }
+  }
+}
+`
+  );
+
+  return data.articles.nodes;
+}
+
 export async function getAllArticleSlugs() {
   const data = await fetchAPI(
     `

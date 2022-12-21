@@ -1,0 +1,34 @@
+---
+import Layout from "src/layouts/Layout.astro";
+import ArticleCard from "@components/cards/ArticleCard.astro";
+import { getArticlesForArchive } from "src/utils/fetchApi";
+import PageBanner from "@sections/PageBanner.astro";
+export async function getStaticPaths({ paginate }) {
+  const allArticles = await getArticlesForArchive();
+
+  return paginate(allArticles, { pageSize: 3 });
+}
+
+const { page } = Astro.props;
+---
+
+<Layout title="Articles | 100 Million US">
+  <PageBanner>Our Articles</PageBanner>
+  <section class="bg-black px-edge py-20">
+    <div class="max-w-screen-2xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10">
+        {page.data.map((article) => <ArticleCard data={article} />)}
+      </div>
+      <div class="mt-10 flex justify-between font-bebas text-primary text-2xl">
+        {page.url.prev ? <a href={page.url.prev}>Previous Page</a> : null}
+        {
+          page.url.next ? (
+            <a class={page.url.prev ? null : "ml-auto"} href={page.url.next}>
+              Next Page
+            </a>
+          ) : null
+        }
+      </div>
+    </div>
+  </section>
+</Layout>
