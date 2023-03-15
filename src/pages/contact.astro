@@ -11,24 +11,34 @@ const fields = [
 ];
 
 const contacts = [
-  { icon: "mdi:envelope", text: "example@email.com" },
-  { icon: "mdi:phone", text: "123-456-7890" },
-  { icon: "mdi:location", text: "this is just placeholder address text." },
+  { icon: "mdi:envelope", text: "usa@100million.org" },
+  {
+    icon: "mdi:location",
+    text: "1527 New Hampshire Avenue NW Washington DC 20002",
+  },
 ];
 
 const socialLinks = [
-  { name: "mdi:twitter", link: "/" },
-  { name: "mdi:instagram", link: "/" },
-  { name: "ic:baseline-tiktok", link: "/" },
+  { name: "mdi:twitter", link: "https://twitter.com/100millionus" },
+  { name: "mdi:instagram", link: "https://www.instagram.com/100millionusa/" },
 ];
 ---
 
 <Layout title="Contact Us">
-  <PageBanner>Contact US</PageBanner>
+  <section class="bg-primary px-edge py-16">
+    <div class="max-w-screen-2xl mx-auto text-center text-white">
+      <h1 class="font-bebas text-[100px]">Contact Us</h1>
+      <p class="text-lg">
+        Looking to get involved? Reach out to us and we will get back to you as
+        soon as possibile with steps to take action.
+      </p>
+    </div>
+  </section>
+
   <section class="bg-gray-400 h-[500px]">
     <iframe
       id="gmap_canvas"
-      src="https://maps.google.com/maps?q=2880%20Broadway,%20New%20York&t=&z=13&ie=UTF8&iwloc=&output=embed"
+      src="https://maps.google.com/maps?q=1527%20New%20Hampshire%20Avenue%20NW%20Washington%20DC%2020002&t=&z=13&ie=UTF8&iwloc=&output=embed"
       class="w-full h-full"></iframe>
   </section>
   <section class="bg-black px-edge pb-4">
@@ -67,7 +77,7 @@ const socialLinks = [
         <ul class="flex justify-between mt-4 max-w-[150px] mx-auto">
           {
             socialLinks.map((link) => (
-              <a href={link.link}>
+              <a href={link.link} target="_blank">
                 <Icon name={link.name} size={24} color="white" />
               </a>
             ))

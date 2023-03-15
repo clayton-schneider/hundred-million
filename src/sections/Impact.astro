@@ -1,3 +1,19 @@
+---
+import { Icon } from "astro-icon";
+const impacts = [
+  { text: "Visited Classrooms", icon: "mdi:learn-outline" },
+  { text: "Held In Person Events", icon: "ic:baseline-people" },
+  {
+    text: "Supported Global Campaigns",
+    icon: "ph:globe-hemisphere-east",
+  },
+  {
+    text: "Engaged Decision Makers",
+    icon: "mdi:court-hammer",
+  },
+];
+---
+
 <section class="bg-primary px-edge py-16 lg:py-20">
   <div class="max-w-screen-2xl mx-auto">
     <div class="font-bebas text-center text-text-light leading-none">
@@ -6,13 +22,17 @@
         In The <span class="text-text-dark">Past 3 Years</span> We Have...
       </h6>
     </div>
-    <div class="mt-12 flex flex-wrap justify-center gap-16">
+    <div class="mt-12 flex justify-center gap-10">
       {
-        [...Array(4).keys()].map((num) => (
+        impacts.map((impact) => (
           <div>
-            <div class="w-32 h-20 bg-gray-400 mx-auto" />
-            <p class="mt-11 font-bebas text-text-light text-5xl">
-              Impact #{num + 1}
+            <Icon
+              name={impact.icon}
+              class="text-text-light mx-auto"
+              size={40}
+            />
+            <p class="mt-11 text-center font-bebas text-text-light text-5xl">
+              {impact.text}
             </p>
           </div>
         ))

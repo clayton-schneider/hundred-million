@@ -16,39 +16,47 @@ import currentCampaign from "@img/current-campaign.jpg";
   <Hero />
   <ImageExplanation image={currentCampaign}>
     <div class="text-center lg:text-left">
+      <p class="font-bold text-text-light font-bebas text-2xl tracking-wider">
+        Current Campaign
+      </p>
       <h2
         class="font-bebas leading-none text-text-light text-7xl md:text-[100px]"
       >
-        Current <br /><span class="text-primary text-8xl md:text-[130px]"
-          >Campaign</span
-        >
+        Justice For <span class="text-primary">Africa's Children</span>
       </h2>
 
       <div class="mt-4 text-text-light space-y-4 text-lg leading-loose">
         <p>
-          This is just placeholder text. Don’t be alarmed, this is just here to
-          fill up space since your finalized copy isn’t ready yet. Once we have
-          your content finalized, we’ll replace this placeholder text with your
-          real content.
+          Youth activists, student leaders, survivor-advocates and their
+          representative organizations across Africa are coming together and
+          demanding justice. Amplified by solidarity actions from their peers
+          around the world, they are demanding urgent action that delivers
+          Justice for Africa. To learn more about the campaign on a global
+          scale, <a
+            target="_blank"
+            href="https://www.100million.org/"
+            class="underline font-bold text-primary">click here</a
+          >.
         </p>
         <p>
-          Sometimes it’s nice to put in text just to get an idea of how text
-          will fill in a space on your website.
-        </p>
-        <p>
-          Traditionally our industry has used Lorem Ipsum, which is placeholder
-          text written in Latin. Unfortunately, not everyone is familiar with
-          Lorem Ipsum and that can lead to confusion. I can’t tell you how many
-          times clients have asked me why their website is in another language!
+          In the US, youth activists engaged in a wide variety of solidarity
+          actions on the 20th. From coast to coast, students stood with signs in
+          front of important buildings in their communities, flyered, and
+          chalked.
         </p>
       </div>
 
-      <PrimaryBtn className="mt-4" color="primary">Get Involved</PrimaryBtn>
+      <PrimaryBtn
+        to="https://www.100million.org/"
+        className="mt-4"
+        color="primary">Get Involved</PrimaryBtn
+      >
     </div>
   </ImageExplanation>
   <JoinTheFight />
-  <Organizations />
+
+  <!-- <Organizations /> -->
   <LatestArticles />
-  <FeaturedResources />
+  <!-- <FeaturedResources /> -->
   <UpToDate />
 </Layout>

@@ -1,3 +1,12 @@
+---
+const goals = [
+  "Every child is free, safe, and educated",
+  "Child marriage is ILLEGAL in all 50 states",
+  "Children have safe and consistent access to education",
+  "The US takes accountability for the child labor in its supply chains",
+];
+---
+
 <section class="bg-black px-edge py-16 lg:py-36">
   <div class="max-w-screen-2xl mx-auto">
     <div class="font-bebas text-text-light text-center leading-none">
@@ -6,19 +15,12 @@
         We <span class="text-primary">Won't Stop</span> Until
       </h6>
     </div>
-    <div class="mt-12 flex flex-wrap justify-center gap-14">
+    <div class="mt-12 flex justify-center gap-14">
       {
-        [...Array(4).keys()].map((num) => (
+        goals.map((goal) => (
           <div class="max-w-[300px]">
-            <div class="w-32 h-20 bg-gray-400 mx-auto" />
             <div class="text-text-light text-center">
-              <p class="mt-11 font-bebas text-text-light text-5xl">
-                Goal #{num + 1}
-              </p>
-              <p>
-                This is just placeholder text. Don’t be alarmed, this is just
-                here to fill up space
-              </p>
+              <p class="mt-11 font-bebas text-text-light text-2xl">{goal}</p>
             </div>
           </div>
         ))

@@ -8,13 +8,13 @@ import Team from "@sections/Team.astro";
 import TheWhy from "@sections/TheWhy.astro";
 import Layout from "src/layouts/Layout.astro";
 
-import howItBeganImg from "@img/about-how-it-began.jpg";
+import homeHeroImg from "@img/kailash.jpg";
 ---
 
 <Layout title="About Us">
   <PageBanner>About</PageBanner>
   <TheWhy />
-  <ImageExplanation reversed={true} image={howItBeganImg}>
+  <ImageExplanation reversed={true} image={homeHeroImg}>
     <div class="text-center lg:text-left">
       <h2
         class="font-bebas leading-none text-text-light text-7xl md:text-[100px]"
@@ -24,20 +24,22 @@ import howItBeganImg from "@img/about-how-it-began.jpg";
 
       <div class="mt-4 text-text-light space-y-2 text-lg">
         <p>
-          This is just placeholder text. Don’t be alarmed, this is just here to
-          fill up space since your finalized copy isn’t ready yet. Once we have
-          your content finalized, we’ll replace this placeholder text with your
-          real content.
+          100 Million US is led by a National Campaign Group (NCG), which is
+          made up of passionate student activists from across the country,
+          ranging from high school-age to masters candidates. The NCG has taken
+          on the task of growing the scope and outreach of 100 Million US. They
+          want the organization to be a community of support for young people in
+          the United States who are passionate about children’s rights and aim
+          to engage those young people in the call to action of the global <a
+            target="_blank"
+            href=""
+            class="font-bold text-primary">100 Million campaign</a
+          >.​
         </p>
         <p>
-          Sometimes it’s nice to put in text just to get an idea of how text
-          will fill in a space on your website.
-        </p>
-        <p>
-          Traditionally our industry has used Lorem Ipsum, which is placeholder
-          text written in Latin. Unfortunately, not everyone is familiar with
-          Lorem Ipsum and that can lead to confusion. I can’t tell you how many
-          times clients have asked me why their website is in another language!
+          100 Million US engages and builds its base of activists through
+          in-person and virtual events and advocacy campaigns that support the
+          global work of 100 Million Global and KSCF US.
         </p>
       </div>
 
@@ -48,5 +50,5 @@ import howItBeganImg from "@img/about-how-it-began.jpg";
   </ImageExplanation>
   <Impact />
   <Goals />
-  <Team />
+  <!-- <Team /> -->
 </Layout>
