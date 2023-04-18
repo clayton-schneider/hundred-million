@@ -1,3 +1,7 @@
+---
+import { Image } from "@astrojs/image/components";
+---
+
 <section class="bg-black px-edge py-16 lg:py-20">
   <div class="max-w-screen-2xl mx-auto text-center">
     <h2
@@ -5,7 +9,18 @@
     >
       Our Story
     </h2>
-    <div class="max-w-6xl mx-auto space-y-2 text-text-light text-lg">
+    <Image
+      class="mx-auto mt-5"
+      src={import("@img/kailash-satyarthi.jpg")}
+      alt="kailash-satyarthi"
+    />
+    <div class="mt-5 max-w-6xl mx-auto space-y-2 text-text-light text-lg">
+      <p>
+        Kailash Satyarthi has been a tireless advocate of children’s rights for
+        over three decades. In 2014, he was jointly awarded the Nobel Peace
+        Prize for “struggle against the suppression of children and young people
+        and for the right of all children to education.”
+      </p>
       <p>
         The 100 Million campaign is a youth-led call to action for a world where
         all young people are free, safe and educated. We support young people in
