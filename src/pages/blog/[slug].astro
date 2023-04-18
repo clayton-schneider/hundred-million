@@ -5,9 +5,9 @@ import { getAllArticleSlugs, getArticleBySlug } from "src/utils/api/articles";
 import formatDate from "src/utils/formatDate";
 
 export async function getStaticPaths() {
-  const articleSlugs = await getAllArticleSlugs();
+  const blogSlugs = await getAllArticleSlugs();
 
-  return articleSlugs.map(({ slug }) => {
+  return blogSlugs.map(({ slug }) => {
     return {
       params: {
         slug: slug,
@@ -17,27 +17,27 @@ export async function getStaticPaths() {
 }
 
 const { slug } = Astro.params;
-const article = await getArticleBySlug(slug);
+const blog = await getArticleBySlug(slug);
 ---
 
-<Layout title={`${article.title} | 100 Million US`}>
+<Layout title={`${blog.title} | 100 Million US`}>
   <section class="bg-black px-edge py-10">
     <div class="max-w-screen-lg mx-auto">
       <div class="w-full relative pb-[40%]">
         <Image
           class="absolute inset-0 w-full h-full object-cover"
-          src={article.featuredImage.node.sourceUrl}
-          alt={article.featuredImage.node.altText}
+          src={blog.featuredImage.node.sourceUrl}
+          alt={blog.featuredImage.node.altText}
           format="jpeg"
-          width={article.featuredImage.node.mediaDetails.width}
-          height={article.featuredImage.node.mediaDetails.height}
+          width={blog.featuredImage.node.mediaDetails.width}
+          height={blog.featuredImage.node.mediaDetails.height}
         />
       </div>
       <div class="mt-20 text-text-light">
-        <p class="font-bold text-xl text-primary">{formatDate(article.date)}</p>
-        <h1 class="font-bebas text-6xl">{article.title}</h1>
+        <p class="font-bold text-xl text-primary">{formatDate(blog.date)}</p>
+        <h1 class="font-bebas text-6xl">{blog.title}</h1>
 
-        <article class="prose prose-img:mx-auto" set:html={article.body} />
+        <article class="prose prose-img:mx-auto" set:html={blog.body} />
       </div>
     </div>
   </section>

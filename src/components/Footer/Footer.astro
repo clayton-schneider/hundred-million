@@ -8,19 +8,22 @@ const involveLinks = [
 
 const resourceLinks = [
   { link: "/about-us", text: "About Us" },
-  { link: "/articles/1", text: "Articles" },
-  { link: "/resources/1", text: "Resources" },
+  { link: "/blog/1", text: "Blog" },
+  { link: "/internships", text: "Internship Opportunities" },
+  // { link: "/resources/1", text: "Resources" },
 ];
 
 const socialLinks = [
   { name: "mdi:twitter", link: "/" },
   { name: "mdi:instagram", link: "/" },
-  { name: "ic:baseline-tiktok", link: "/" },
 ];
+
+const date = new Date();
 
 import { Image } from "@astrojs/image/components";
 import { Icon } from "astro-icon";
 import PriamryBtn from "@components/buttons/PrimaryBtn";
+import MailchimpSubscribe from "react-mailchimp-subscribe";
 ---
 
 <section class="bg-primary text-text-light">
@@ -49,20 +52,7 @@ import PriamryBtn from "@components/buttons/PrimaryBtn";
           }
         </div>
       </div>
-      <div class="text-center lg:text-left">
-        <p class="text-4xl font-bebas">
-          Get <span class="text-text-dark">Involved</span>
-        </p>
-        <ul class="space-y-2">
-          {
-            involveLinks.map((link) => (
-              <li>
-                <a href={link.link}>{link.text}</a>
-              </li>
-            ))
-          }
-        </ul>
-      </div>
+
       <div class="text-center lg:text-left">
         <p class="text-4xl font-bebas">
           Learn <span class="text-text-dark">More</span>
@@ -81,12 +71,11 @@ import PriamryBtn from "@components/buttons/PrimaryBtn";
         <p class="text-4xl font-bebas">
           Stay <span class="text-text-dark">Up To Date</span>
         </p>
-        <div class="flex flex-wrap justify-center gap-2">
-          <input
-            class="bg-transparent border border-black focus:outline-none rounded-full py-3 w-64 px-4 text-sm text-text-light placeholder:text-text-light"
-            type="text"
-            placeholder="Email"
-          />
+        <div
+          class="flex flex-wrap justify-center gap-2 [&_input]:bg-transparent [&_input]:border [&_input]:border-black [&_input]:focus:outline-none [&_input]:rounded-full [&_input]:py-3 [&_input]:w-64 [&_input]:px-4 [&_input]:text-sm [&_input]:text-text-light [&_input]:placeholder:text-text-light"
+        >
+          <MailchimpSubscribe url="test.com" />
+
           <PriamryBtn className="!text-lg" to="/">Join Us</PriamryBtn>
         </div>
       </div>
@@ -94,9 +83,8 @@ import PriamryBtn from "@components/buttons/PrimaryBtn";
   </footer>
   <div class="px-edge bg-primary-darker py-4">
     <p class="font-bebas text-xl text-center">
-      Copyright © 2022 100 Million Us | All Right Reserved | Powered By <a
-        href="https://www.simply-sprout.com">Simply Sprout</a
-      >
+      Copyright © {date.getFullYear()} 100 Million Us | All Right Reserved | Powered
+      By <a href="https://www.simply-sprout.com">Simply Sprout</a>
     </p>
   </div>
 </section>

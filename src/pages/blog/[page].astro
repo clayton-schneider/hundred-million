@@ -5,16 +5,16 @@ import { getArticlesForArchive } from "src/utils/api/articles";
 import PageBanner from "@sections/PageBanner.astro";
 
 export async function getStaticPaths({ paginate }) {
-  const allArticles = await getArticlesForArchive();
+  const allBlog = await getArticlesForArchive();
 
-  return paginate(allArticles, { pageSize: 3 });
+  return paginate(allBlog, { pageSize: 3 });
 }
 
 const { page } = Astro.props;
 ---
 
-<Layout title="Articles | 100 Million US">
-  <PageBanner>Our Articles</PageBanner>
+<Layout title="Blog | 100 Million US">
+  <PageBanner>Our Blog</PageBanner>
   <section class="bg-black px-edge py-20">
     <div class="max-w-screen-2xl mx-auto">
       <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10">
