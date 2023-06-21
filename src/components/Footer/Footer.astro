@@ -22,11 +22,10 @@ const date = new Date();
 
 import { Image } from "@astrojs/image/components";
 import { Icon } from "astro-icon";
-import PriamryBtn from "@components/buttons/PrimaryBtn";
-import MailchimpSubscribe from "react-mailchimp-subscribe";
+import MailchimpForm from "@components/forms/MailchimpForm";
 ---
 
-<section class="bg-primary text-text-light">
+<section class="bg-primary border-t-2 border-t-black text-text-light">
   <footer class="px-edge py-12">
     <div
       class="max-w-screen-2xl mx-auto flex flex-col lg:flex-row items-center lg:items-start justify-between gap-5"
@@ -71,20 +70,15 @@ import MailchimpSubscribe from "react-mailchimp-subscribe";
         <p class="text-4xl font-bebas">
           Stay <span class="text-text-dark">Up To Date</span>
         </p>
-        <div
-          class="flex flex-wrap justify-center gap-2 [&_input]:bg-transparent [&_input]:border [&_input]:border-black [&_input]:focus:outline-none [&_input]:rounded-full [&_input]:py-3 [&_input]:w-64 [&_input]:px-4 [&_input]:text-sm [&_input]:text-text-light [&_input]:placeholder:text-text-light"
-        >
-          <MailchimpSubscribe url="test.com" />
 
-          <PriamryBtn className="!text-lg" to="/">Join Us</PriamryBtn>
-        </div>
+        <MailchimpForm client:load />
       </div>
     </div>
   </footer>
-  <div class="px-edge bg-primary-darker py-4">
-    <p class="font-bebas text-xl text-center">
-      Copyright © {date.getFullYear()} 100 Million Us | All Right Reserved | Powered
-      By <a href="https://www.simply-sprout.com">Simply Sprout</a>
-    </p>
-  </div>
 </section>
+<div class="px-edge bg-primary-darker py-4">
+  <p class="font-bebas text-xl text-center">
+    Copyright © {date.getFullYear()} 100 Million Us | All Right Reserved | Powered
+    By <a href="https://www.simply-sprout.com">Simply Sprout</a>
+  </p>
+</div>
