@@ -7,7 +7,7 @@ import FeaturedResources from "@sections/FeaturedResources.astro";
 import LatestArticles from "@sections/LatestArticles.astro";
 
 import individualImg from "@img/individuals-action-plan.jpg";
-import UserForm from "@/components/forms/UserForm";
+import IndividualForm from "@components/forms/IndividualForm";
 ---
 
 <Layout title="Individuals">
@@ -59,7 +59,7 @@ import UserForm from "@/components/forms/UserForm";
       </div>
 
       <div class="flex-1 bg-white py-5 px-8 lg:py-12 lg:px-16">
-        <UserForm client:load />
+        <IndividualForm client:load />
       </div>
     </div>
   </section>

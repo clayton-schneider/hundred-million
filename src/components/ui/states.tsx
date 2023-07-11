@@ -71,8 +71,11 @@ const stateNames = [
   "Wisconsin",
   "Wyoming",
 ];
-
-const StatesSelector = ({ form }) => {
+interface StatesSelector {
+  form: any;
+  className?: string;
+}
+const StatesSelector = ({ form, className }: StatesSelector) => {
   const [open, setOpen] = useState(false);
 
   return (
@@ -80,7 +83,7 @@ const StatesSelector = ({ form }) => {
       control={form.control}
       name="state"
       render={({ field }) => (
-        <FormItem className="flex flex-col">
+        <FormItem className={cn("flex flex-col", className)}>
           <FormLabel>State</FormLabel>
           <Popover open={open} onOpenChange={setOpen}>
             <PopoverTrigger asChild>

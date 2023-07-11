@@ -18,9 +18,9 @@ const formSchema = z.object({
     message: "Fullname must be at least 2 characters.",
   }),
   email: z.string().email(),
-  state: z.string(),
+  state: z.string({ required_error: "Please select a state." }),
   age: z.string(),
-  activist: z.string({ required_error: "Please select a state." }),
+  activist: z.string(),
   referral: z
     .string()
     .min(2, { message: "Must be at least 2 characters." })
@@ -46,7 +46,7 @@ import { Input } from "@components/ui/input";
 import StatesSelector from "../ui/states";
 import { handleForm } from "@/lib/utils";
 
-const UserForm = () => {
+const IndividualForm = () => {
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -262,4 +262,4 @@ const UserForm = () => {
   );
 };
 
-export default UserForm;
+export default IndividualForm;
