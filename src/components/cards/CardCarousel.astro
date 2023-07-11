@@ -1,11 +1,13 @@
 ---
 import VerticalCard from "./VerticalCard.astro";
+import { Props as TVerticalCard } from "./VerticalCard.astro";
 import ResourceCard from "./ResourceCard.astro";
+import { Props as TResourceCard } from "./ResourceCard.astro";
 
 export interface Props {
   label: string;
   type?: "vertical" | "resource";
-  cards: typeof VerticalCard[] | typeof ResourceCard[];
+  cards: TVerticalCard[] | TResourceCard[];
 }
 
 const { label, cards, type = "vertical" } = Astro.props;
@@ -18,7 +20,7 @@ const { label, cards, type = "vertical" } = Astro.props;
         cards.map((card) => (
           <>
             {type === "resource" && (
-              <ResourceCard data={card} classname="splide__slide lg:!shrink" />
+              <ResourceCard data={card} className="splide__slide lg:!shrink" />
             )}
             {type === "vertical" && (
               <VerticalCard data={card} className="splide__slide lg:!shrink" />

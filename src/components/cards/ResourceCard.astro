@@ -2,7 +2,7 @@
 import { Image } from "@astrojs/image/components";
 import PrimaryBtn from "@components/buttons/PrimaryBtn";
 
-type ResourceCard = {
+export type ResourceCard = {
   slug: string;
   title: string;
   summary: string;
@@ -19,7 +19,7 @@ type ResourceCard = {
 };
 
 export interface Props {
-  classname?: string;
+  className?: string;
   data: ResourceCard;
 }
 

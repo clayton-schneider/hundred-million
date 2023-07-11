@@ -7,9 +7,8 @@ const involveLinks = [
 ];
 
 const resourceLinks = [
-  { link: "/about-us", text: "About Us" },
-  { link: "/blog/1", text: "Blog" },
-  { link: "/internships", text: "Internship Opportunities" },
+  { link: "/about", text: "About Us" },
+  { link: "/blog", text: "Blog" },
   // { link: "/resources/1", text: "Resources" },
 ];
 
@@ -51,7 +50,20 @@ import MailchimpForm from "@components/forms/MailchimpForm";
           }
         </div>
       </div>
-
+      <div class="text-center lg:text-left">
+        <p class="text-4xl font-bebas">
+          Get <span class="text-text-dark">Involved</span>
+        </p>
+        <ul class="space-y-2">
+          {
+            involveLinks.map((link) => (
+              <li>
+                <a href={link.link}>{link.text}</a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
       <div class="text-center lg:text-left">
         <p class="text-4xl font-bebas">
           Learn <span class="text-text-dark">More</span>
