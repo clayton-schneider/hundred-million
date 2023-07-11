@@ -1,4 +1,5 @@
 ---
+import { Icon } from "astro-icon";
 import Layout from "../layouts/Layout.astro";
 import PageBanner from "@sections/PageBanner.astro";
 import ImageExplanation from "@sections/ImageExplanation.astro";
@@ -17,20 +18,53 @@ import UserForm from "@/components/forms/UserForm";
     </h2>
 
     <div class="mt-4 text-text-light space-y-4 text-lg">
-      {
-        [...Array(3).keys()].map((num) => (
-          <div>
-            <p class="font-bebas leading-none text-5xl">Step #{num + 1}</p>
-            <p>
-              This is just placeholder text. Don’t be alarmed, this is just here
-              to fill up space since your finalized copy isn’t ready yet.
-            </p>
-          </div>
-        ))
-      }
+      <div>
+        <p class="font-bebas leading-none text-5xl">Step #1: Stay Informed</p>
+        <p>
+          Stay up to date with our initiatives to create a world where all young
+          people are free, safe, and educated.
+        </p>
+      </div>
+      <div>
+        <p class="font-bebas leading-none text-5xl">Step #2: Take Action</p>
+        <p>
+          Fill our our form below to join 100 Million US on our mission. Whether
+          you would like to take a leadership role on our team or receive
+          updates on our initiatives, we have a way for you to be involved.
+        </p>
+      </div>
     </div>
   </ImageExplanation>
-  <UserForm client:load />
+  <section class="px-edge pt-16 lg:pt-36 bg-primary relative">
+    <div
+      class="max-w-screen-2xl mx-auto flex flex-col lg:flex-row justify-between gap-10 2xl:gap-40 relative z-10"
+    >
+      <div class="max-w-2xl text-text-light">
+        <h2 class="font-bebas leading-none text-[100px]">Join The Team</h2>
+        <p>
+          A short paragraph that explains why someone would be interested in
+          filling out the form. What can they expect?
+        </p>
+        <ul class="mt-4 space-y-2">
+          <li class="flex space-x-2">
+            <Icon name="mdi:check" size={20} /><span class="flex-1"
+              >Reason Number One</span
+            >
+          </li>
+          <li class="flex space-x-2">
+            <Icon name="mdi:check" size={20} /><span>Reason Number Two</span>
+          </li>
+          <li class="flex space-x-2">
+            <Icon name="mdi:check" size={20} /><span>Reason Number Three</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="flex-1 bg-white py-12 px-16">
+        <UserForm client:load />
+      </div>
+    </div>
+  </section>
   <!-- <FeaturedResources /> -->
   <!-- <LatestArticles /> -->
 </Layout>

@@ -65,10 +65,8 @@ const UserForm = () => {
 
   // 2. Define a submit handler.
   function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log("triggered");
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
-    console.log(values);
     handleForm(
       {
         to: [{ email: "clayton@simply-sprout.com", name: "Clayton Schneider" }],
@@ -85,7 +83,7 @@ const UserForm = () => {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-8">
         <FormField
           control={form.control}
           name="fullname"
@@ -255,7 +253,12 @@ const UserForm = () => {
             </FormItem>
           )}
         />
-        <Button type="submit">Submit</Button>
+        <button
+          type="submit"
+          className="mx-auto bg-primary block px-16 py-3 rounded-full font-bebas text-2xl text-white cursor-pointer"
+        >
+          Submit
+        </button>
       </form>
     </Form>
   );
