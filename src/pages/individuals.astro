@@ -6,6 +6,7 @@ import FeaturedResources from "@sections/FeaturedResources.astro";
 import LatestArticles from "@sections/LatestArticles.astro";
 
 import individualImg from "@img/individuals-action-plan.jpg";
+import UserForm from "@/components/forms/UserForm";
 ---
 
 <Layout title="Individuals">
@@ -29,6 +30,8 @@ import individualImg from "@img/individuals-action-plan.jpg";
       }
     </div>
   </ImageExplanation>
-  <FeaturedResources />
-  <LatestArticles />
+
+  <UserForm client:load />
+  <!-- <FeaturedResources /> -->
+  <!-- <LatestArticles /> -->
 </Layout>
