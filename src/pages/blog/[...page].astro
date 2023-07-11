@@ -13,7 +13,13 @@ export async function getStaticPaths({ paginate }) {
 const { page } = Astro.props;
 ---
 
-<Layout title="Blog | 100 Million US">
+<Layout
+  seo={{
+    title: "Blog | 100 Million",
+    description:
+      "Articles written by youth activists and guest writers. Stay up to date on our campaigns the impact our community is creating.",
+  }}
+>
   <PageBanner>Our Blog</PageBanner>
   <section class="bg-black px-edge py-20">
     <div class="max-w-screen-2xl mx-auto">

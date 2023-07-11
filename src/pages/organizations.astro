@@ -10,7 +10,13 @@ import organizationsImage from "@img/organizations-action-plan.jpg";
 import OrganizationForm from "@components/forms/OrganizationForm";
 ---
 
-<Layout title="Organizations">
+<Layout
+  seo={{
+    title: "Organizations | 100 Million",
+    description:
+      "Are you a campus or community organization in the United States which advocates for children to be free, safe, or educated? Let’s work together!",
+  }}
+>
   <PageBanner>Organizations</PageBanner>
   <ImageExplanation bottomBanner={false} image={organizationsImage}>
     <h2 class="font-bebas leading-none text-text-light text-[100px]">

@@ -11,7 +11,13 @@ import Layout from "src/layouts/Layout.astro";
 import homeHeroImg from "@img/kailash.jpg";
 ---
 
-<Layout title="About Us">
+<Layout
+  seo={{
+    title: "About Us | 100 Million",
+    description:
+      "Hundred Million US is a nonprofit campaign that is fighting for a world where all young people are free, safe, and educated. We are supported by the efforts of the Kailash Satyarthi Children's Foundation.",
+  }}
+>
   <PageBanner>About</PageBanner>
   <TheWhy />
   <ImageExplanation reversed={true} image={homeHeroImg}>

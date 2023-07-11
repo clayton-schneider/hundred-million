@@ -20,7 +20,9 @@ const { slug } = Astro.params;
 const blog = await getArticleBySlug(slug);
 ---
 
-<Layout title={`${blog.title} | 100 Million US`}>
+<Layout
+  seo={{ title: `${blog.title} | 100 Million`, description: blog.summary }}
+>
   <section class="bg-black px-edge py-10">
     <div class="max-w-screen-lg mx-auto">
       <div class="w-full relative pb-[40%]">

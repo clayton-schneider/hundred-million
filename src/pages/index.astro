@@ -12,7 +12,13 @@ import UpToDate from "@sections/UpToDate.astro";
 import currentCampaign from "@img/current-campaign.jpg";
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout
+  seo={{
+    title: "100 Million",
+    description:
+      "Hundred Million US is a youth-led campaign fighting for a world where all young people are free, sage, and educated. We are a nonprofit that supports young people in mobilizing to end violence against children, eradicate child labour, and ensure education, breaking the cycles of illiteracy, poverty and violence for good.",
+  }}
+>
   <Hero />
   <ImageExplanation image={currentCampaign}>
     <div class="text-center lg:text-left">

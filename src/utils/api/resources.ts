@@ -84,6 +84,7 @@ export async function getResourceBySlug(slug) {
     date
     body
     title
+    summary
     featuredImage {
       node {
         altText
