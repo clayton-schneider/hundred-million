@@ -44,6 +44,8 @@ import { useForm } from "react-hook-form";
 
 import { Textarea } from "@components/ui/textarea";
 
+import { RadioGroup, RadioGroupItem } from "@components/ui/radio-group";
+
 import {
   Form,
   FormControl,
@@ -135,6 +137,35 @@ const TeacherForm = () => {
         />
 
         <StatesSelector className="col-span-2" form={form} />
+
+        <FormField
+          control={form.control}
+          name="level"
+          render={({ field }) => (
+            <FormItem className="space-y-3">
+              <FormLabel>What age are the students you teach?</FormLabel>
+              <FormControl>
+                <RadioGroup
+                  onValueChange={field.onChange}
+                  defaultValue={field.value}
+                  className="flex flex-col space-y-1"
+                >
+                  {levels.map((level) => (
+                    <FormItem className="flex items-center space-x-3 space-y-0">
+                      <FormControl>
+                        <RadioGroupItem value={level.id} />
+                      </FormControl>
+                      <FormLabel className="font-normal">
+                        {level.label}
+                      </FormLabel>
+                    </FormItem>
+                  ))}
+                </RadioGroup>
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
 
         <FormField
           control={form.control}
