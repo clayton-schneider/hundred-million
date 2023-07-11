@@ -18,17 +18,21 @@ import OrganizationForm from "@components/forms/OrganizationForm";
     </h2>
 
     <div class="mt-4 text-text-light space-y-4 text-lg">
-      {
-        [...Array(4).keys()].map((num) => (
-          <div>
-            <p class="font-bebas leading-none text-5xl">Step #{num + 1}</p>
-            <p>
-              This is just placeholder text. Don’t be alarmed, this is just here
-              to fill up space since your finalized copy isn’t ready yet.
-            </p>
-          </div>
-        ))
-      }
+      <div>
+        <p class="font-bebas leading-none text-5xl">Step #1: Stay Informed</p>
+        <p>
+          Stay up to date with our initiatives to create a world where all young
+          people are free, safe, and educated.
+        </p>
+      </div>
+      <div>
+        <p class="font-bebas leading-none text-5xl">Step #2: Take Action</p>
+        <p>
+          Fill our our form below to join 100 Million US on our mission. Whether
+          you would like to take a leadership role on our team or receive
+          updates on our initiatives, we have a way for you to be involved.
+        </p>
+      </div>
     </div>
   </ImageExplanation>
   <section class="px-edge pt-16 lg:pt-36 bg-primary relative">
@@ -66,7 +70,7 @@ import OrganizationForm from "@components/forms/OrganizationForm";
       </div>
     </div>
   </section>
+  <LatestArticles />
 </Layout>
 
 <!-- <FeaturedResources /> -->
-<!-- <LatestArticles /> -->

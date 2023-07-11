@@ -17,17 +17,27 @@ const formSchema = z.object({
   organization: z.string().min(2, {
     message: "Fullname must be at least 2 characters.",
   }),
-  website: z.string().email(),
-  mission: z.string(),
+  website: z.string({
+    required_error: "Please make sure to enter your website.",
+  }),
+  mission: z.string({
+    required_error: "Please make sure to enter your mission.",
+  }),
   state: z.string({ required_error: "Please select a state." }),
-  contact: z.string(),
-  role: z.string(),
-  email: z.string().email(),
+  contact: z.string({ required_error: "Please make sure to enter your name." }),
+  role: z.string({ required_error: "Please make sure to enter your role." }),
+  email: z
+    .string({ required_error: "Please make sure to enter your email." })
+    .email(),
   phone: z.string().refine(validator.isMobilePhone, {
     message: "Please enter a valid phone number",
   }),
-  referral: z.string(),
-  need: z.string(),
+  referral: z.string({
+    required_error: "Please make sure to enter how you found us.",
+  }),
+  need: z.string({
+    required_error: "Please make sure to enter any help you need.",
+  }),
 });
 
 import { useForm } from "react-hook-form";
@@ -226,7 +236,7 @@ const IndividualForm = () => {
         />
         <button
           type="submit"
-          className="mx-auto bg-primary block px-16 py-3 rounded-full font-bebas text-2xl text-white cursor-pointer"
+          className="mx-auto lg:mx-0 bg-primary block px-16 py-3 rounded-full font-bebas text-2xl text-white cursor-pointer"
         >
           Submit
         </button>
