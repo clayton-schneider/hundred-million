@@ -4,30 +4,39 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import validator from "validator";
 import * as z from "zod";
 
+const levels = [
+  { id: "elementary", label: "Elementary School" },
+  { id: "middle", label: "Middle School" },
+  {
+    id: "high",
+    label: "High School",
+  },
+  { id: "undergraduate", label: "Undergraduate Students" },
+  { id: "graduate", label: "Graduate Students" },
+];
+
 const formSchema = z.object({
-  organization: z.string().min(2, {
-    message: "Fullname must be at least 2 characters.",
+  name: z.string().min(2, {
+    message: "Fullname must be at least 3 characters.",
   }),
-  website: z.string({
-    required_error: "Please make sure to enter your website.",
-  }),
-  mission: z.string({
-    required_error: "Please make sure to enter your mission.",
-  }),
-  state: z.string({ required_error: "Please select a state." }),
-  contact: z.string({ required_error: "Please make sure to enter your name." }),
-  role: z.string({ required_error: "Please make sure to enter your role." }),
   email: z
     .string({ required_error: "Please make sure to enter your email." })
     .email(),
   phone: z.string().refine(validator.isMobilePhone, {
     message: "Please enter a valid phone number",
   }),
-  referral: z.string({
-    required_error: "Please make sure to enter how you found us.",
+  state: z.string({ required_error: "Please select a state." }),
+  level: z.string({
+    required_error: "Please select the students that you teach.",
+  }),
+  school: z.string({
+    required_error: "Please make sure to enter the school you teach at.",
   }),
   need: z.string({
     required_error: "Please make sure to enter any help you need.",
+  }),
+  referral: z.string({
+    required_error: "Please make sure to enter how you found us.",
   }),
 });
 
@@ -47,21 +56,19 @@ import { Input } from "@components/ui/input";
 import StatesSelector from "@components/ui/states";
 import { handleForm } from "@/lib/utils";
 
-const IndividualForm = () => {
+const TeacherForm = () => {
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      organization: "",
-      website: "",
-      mission: "",
-      state: "",
-      contact: "",
-      role: "",
+      name: "",
       email: "",
       phone: "",
-      referral: "",
+      state: "",
+      level: "",
+      school: "",
       need: "",
+      referral: "",
     },
   });
 
@@ -78,91 +85,27 @@ const IndividualForm = () => {
         },
         subject: "Email Form Submission",
       },
-      "100 Million: Organization Form",
+      "100 Million: Teacher Form",
       values
     );
   }
 
   return (
     <Form {...form}>
-      <form
-        onSubmit={form.handleSubmit(onSubmit)}
-        className="w-full gap-8 flex flex-col lg:grid lg:grid-cols-2"
-      >
+      <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-8">
         <FormField
           control={form.control}
-          name="organization"
+          name="name"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Name of organization</FormLabel>
+              <FormLabel>Name (First and Last)</FormLabel>
               <FormControl>
-                <Input placeholder="Your organization's name here" {...field} />
+                <Input placeholder="First Name Last Name" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
-        <FormField
-          control={form.control}
-          name="website"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Website or social</FormLabel>
-              <FormControl>
-                <Input placeholder="www.example.com" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-
-        <FormField
-          control={form.control}
-          name="mission"
-          render={({ field }) => (
-            <FormItem className="col-span-2">
-              <FormLabel>Organization's mission and vision</FormLabel>
-              <FormControl>
-                <Input placeholder="Your mission here..." {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-
-        <StatesSelector className="col-span-2" form={form} />
-
-        <FormField
-          control={form.control}
-          name="contact"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Name & pronouns of contact person</FormLabel>
-              <FormControl>
-                <Input placeholder="John Doe (he/him)" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-
-        <FormField
-          control={form.control}
-          name="role"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Role of contact person</FormLabel>
-              <FormControl>
-                <Input
-                  placeholder="Programs Coordinator, Volunteer Head, Outreach Manager"
-                  {...field}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-
         <FormField
           control={form.control}
           name="email"
@@ -181,10 +124,26 @@ const IndividualForm = () => {
           control={form.control}
           name="phone"
           render={({ field }) => (
-            <FormItem>
+            <FormItem className="col-span-2">
               <FormLabel>Phone number</FormLabel>
               <FormControl>
                 <Input placeholder="123-456-7890" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <StatesSelector className="col-span-2" form={form} />
+
+        <FormField
+          control={form.control}
+          name="school"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Name of school/university</FormLabel>
+              <FormControl>
+                <Input placeholder="School name" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -236,4 +195,4 @@ const IndividualForm = () => {
   );
 };
 
-export default IndividualForm;
+export default TeacherForm;
