@@ -29,7 +29,6 @@ const formSchema = z.object({
 });
 
 import { useForm } from "react-hook-form";
-import { Button } from "@components/ui/button";
 
 import { Checkbox } from "@components/ui/checkbox";
 
@@ -44,7 +43,6 @@ import {
   FormMessage,
 } from "@components/ui/form";
 import { Input } from "@components/ui/input";
-import { ScrollArea } from "../ui/scroll-area";
 import StatesSelector from "../ui/states";
 import { handleForm } from "@/lib/utils";
 

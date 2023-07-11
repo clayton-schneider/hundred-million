@@ -35,21 +35,19 @@ import UserForm from "@/components/forms/UserForm";
       </div>
     </div>
   </ImageExplanation>
-  <section class="px-edge pt-16 lg:pt-36 bg-primary relative">
+  <section class="px-edge py-16 bg-primary relative">
     <div
       class="max-w-screen-2xl mx-auto flex flex-col lg:flex-row justify-between gap-10 2xl:gap-40 relative z-10"
     >
-      <div class="max-w-2xl text-text-light">
+      <div class="max-w-2xl text-text-light text-center lg:text-left">
         <h2 class="font-bebas leading-none text-[100px]">Join The Team</h2>
         <p>
           A short paragraph that explains why someone would be interested in
           filling out the form. What can they expect?
         </p>
-        <ul class="mt-4 space-y-2">
+        <ul class="mt-4 space-y-2 flex flex-col items-center lg:items-stretch">
           <li class="flex space-x-2">
-            <Icon name="mdi:check" size={20} /><span class="flex-1"
-              >Reason Number One</span
-            >
+            <Icon name="mdi:check" size={20} /><span>Reason Number One</span>
           </li>
           <li class="flex space-x-2">
             <Icon name="mdi:check" size={20} /><span>Reason Number Two</span>
@@ -60,11 +58,12 @@ import UserForm from "@/components/forms/UserForm";
         </ul>
       </div>
 
-      <div class="flex-1 bg-white py-12 px-16">
+      <div class="flex-1 bg-white py-5 px-8 lg:py-12 lg:px-16">
         <UserForm client:load />
       </div>
     </div>
   </section>
+
+  <LatestArticles />
   <!-- <FeaturedResources /> -->
-  <!-- <LatestArticles /> -->
 </Layout>
