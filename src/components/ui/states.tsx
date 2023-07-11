@@ -17,6 +17,7 @@ import {
 import { ScrollArea } from "./scroll-area";
 import { CheckIcon, CaretSortIcon } from "@radix-ui/react-icons";
 import { cn } from "@/lib/utils";
+import { useState } from "react";
 
 const stateNames = [
   "Alabama",
@@ -72,6 +73,8 @@ const stateNames = [
 ];
 
 const StatesSelector = ({ form }) => {
+  const [open, setOpen] = useState(false);
+
   return (
     <FormField
       control={form.control}
@@ -79,12 +82,13 @@ const StatesSelector = ({ form }) => {
       render={({ field }) => (
         <FormItem className="flex flex-col">
           <FormLabel>State</FormLabel>
-          <Popover>
+          <Popover open={open} onOpenChange={setOpen}>
             <PopoverTrigger asChild>
               <FormControl>
                 <Button
                   variant="outline"
                   role="combobox"
+                  aria-expanded={open}
                   className={cn(
                     "w-[200px] justify-between",
                     !field.value && "text-muted-foreground"
@@ -109,6 +113,7 @@ const StatesSelector = ({ form }) => {
                         key={state}
                         onSelect={(value) => {
                           form.setValue("state", state);
+                          setOpen(false);
                         }}
                       >
                         <CheckIcon

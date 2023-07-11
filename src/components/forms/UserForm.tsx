@@ -46,6 +46,7 @@ import {
 import { Input } from "@components/ui/input";
 import { ScrollArea } from "../ui/scroll-area";
 import StatesSelector from "../ui/states";
+import { handleForm } from "@/lib/utils";
 
 const UserForm = () => {
   // 1. Define your form.
@@ -68,6 +69,18 @@ const UserForm = () => {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
     console.log(values);
+    handleForm(
+      {
+        to: [{ email: "clayton@simply-sprout.com", name: "Clayton Schneider" }],
+        from: {
+          email: "noreply@simply-sprout.com",
+          name: "Website Email Bot",
+        },
+        subject: "Email Form Submission",
+      },
+      "100 Million: Individual Form",
+      values
+    );
   }
 
   return (
