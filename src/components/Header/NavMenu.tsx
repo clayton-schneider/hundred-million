@@ -37,7 +37,7 @@ const NavMenu = ({ links }: Props) => {
         ))}
         <PrimaryBtn
           to="/join-us"
-          className="!block !bg-primary w-full text-center lg:!bg-black lg:w-auto"
+          className="!block !bg-primary w-full text-center lg:w-auto"
         >
           Join Us
         </PrimaryBtn>

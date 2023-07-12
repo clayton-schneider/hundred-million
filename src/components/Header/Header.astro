@@ -17,10 +17,7 @@ interface Props {
 const { className } = Astro.props;
 ---
 
-<header
-  class={(className ? className : "") +
-    " bg-primary px-edge relative border-b-2 border-b-black"}
->
+<header class={(className ? className : "") + " bg-black px-edge relative"}>
   <div class="max-w-screen-2xl mx-auto py-4 flex items-center justify-between">
     <a href="/">
       <Image

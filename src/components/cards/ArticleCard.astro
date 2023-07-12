@@ -40,13 +40,13 @@ const { data } = Astro.props;
   <div class="mt-8">
     <p class="font-bold text-primary text-lg">{formatDate(data.date)}</p>
     <div
-      class="flex flex-col lg:flex-row justify-between space-x-10 items-start lg:items-center"
+      class="flex flex-col lg:flex-row justify-between lg:space-x-10 items-start lg:items-center"
     >
-      <p class="font-bebas text-6xl text-text-light">
+      <p class="font-bebas text-4xl lg:text-5xl text-text-light">
         {trimTitle(data.title)}
       </p>
       <a
-        class="font-bebas self-start text-3xl text-text-light flex flex-shrink-0 items-center space-x-4"
+        class="font-bebas lg:self-start text-3xl text-text-light flex flex-shrink-0 items-center space-x-4"
         href={`/blog/${data.slug}`}
         ><span>Read More</span>
         <Icon name="ph:arrow-right-bold" class="fill-text-light" size={24} />
