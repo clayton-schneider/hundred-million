@@ -30,7 +30,9 @@ const { data } = Astro.props;
     <Image
       class="absolute inset-0 w-full h-full object-cover"
       src={data.featuredImage.node.sourceUrl}
-      alt={data.featuredImage.node.sourceUrl}
+      alt={data.featuredImage.node.altText
+        ? data.featuredImage.node.altText
+        : "100 Million US in action"}
       format="jpeg"
       quality={80}
       width={data.featuredImage.node.mediaDetails.width}
