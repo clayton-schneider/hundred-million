@@ -14,10 +14,12 @@ const goals = [
         We <span class="text-primary">Won't Stop</span> Until
       </h6>
     </div>
-    <div class="mt-12 flex justify-center gap-14">
+    <div
+      class="mt-12 flex flex-col md:flex-row items-center justify-center gap-14"
+    >
       {
         goals.map((goal) => (
-          <div class="max-w-[300px]">
+          <div class="md:max-w-[300px]">
             <div class="text-text-light text-center">
               <p class="mt-11 font-bebas text-text-light text-2xl">{goal}</p>
             </div>

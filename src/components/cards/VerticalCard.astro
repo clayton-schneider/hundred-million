@@ -22,7 +22,9 @@ export interface Props {
 const { className, data } = Astro.props;
 ---
 
-<div class={(className ? className : "") + " bg-black max-w-[475px]"}>
+<div
+  class={(className ? className : "") + " bg-black max-w-[475px] flex flex-col"}
+>
   <div class="w-full">
     <Image
       src={data.img.src}
@@ -30,11 +32,18 @@ const { className, data } = Astro.props;
       class="w-full h-full object-cover"
     />
   </div>
-  <div class="py-10 px-4 text-center text-text-light max-w-sm mx-auto">
-    <h6 class="font-bebas text-4xl md:text-6xl">{data.title}</h6>
-    <p class="mt-2 text-lg">{data.text}</p>
-    <PrimaryBtn to={data.link.to} color="primary" className="mt-5"
-      >{data.link.text}</PrimaryBtn
-    >
+  <div class="py-10 h-full px-4 text-center text-text-light max-w-sm mx-auto">
+    <div class="h-full flex flex-col items-center justify-between">
+      <div>
+        <h6 class="font-bebas text-4xl md:text-6xl">{data.title}</h6>
+        <p class="mt-2 text-lg">{data.text}</p>
+      </div>
+
+      <PrimaryBtn
+        to={data.link.to}
+        color="primary"
+        className="mt-5 inline-block">{data.link.text}</PrimaryBtn
+      >
+    </div>
   </div>
 </div>

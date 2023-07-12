@@ -21,7 +21,7 @@ const impacts = [
         In The <span class="text-text-dark">Past 3 Years</span> We Have...
       </h6>
     </div>
-    <div class="mt-12 flex justify-center gap-10">
+    <div class="mt-12 flex flex-col md:flex-row justify-center gap-10">
       {
         impacts.map((impact) => (
           <div>
@@ -30,7 +30,7 @@ const impacts = [
               class="text-text-light mx-auto"
               size={40}
             />
-            <p class="mt-11 text-center font-bebas text-text-light text-5xl">
+            <p class="mt-11 text-center font-bebas text-text-light text-4xl lg:text-5xl">
               {impact.text}
             </p>
           </div>
