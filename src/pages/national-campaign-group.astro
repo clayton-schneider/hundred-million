@@ -1,0 +1,48 @@
+---
+import { Icon } from "astro-icon";
+import NCGForm from "@/components/forms/NCGForm";
+import Layout from "@/layouts/Layout.astro";
+import PageBanner from "@/sections/PageBanner.astro";
+---
+
+<Layout
+  seo={{ title: "National Campaign Group | 100 Million US", description: "" }}
+>
+  <PageBanner>National Campaign Group</PageBanner>
+
+  <section class="px-edge py-16 lg:py-36 bg-black relative">
+    <div
+      class="max-w-screen-2xl mx-auto flex flex-col xl:flex-row justify-between gap-10 2xl:gap-40 relative z-10"
+    >
+      <div class="order-2 flex-1 lg:min-h-[1080px] lg:min-w-[500px]">
+        <div class="bg-white py-5 px-8 lg:py-12 lg:px-16">
+          <NCGForm client:load />
+        </div>
+      </div>
+      <div class="text-center xl:text-left max-w-2xl mx-auto">
+        <h2 class="font-bebas leading-none text-text-light text-[100px]">
+          Join The <span class="text-primary text-[100px]"
+            >National Campaign Group</span
+          >
+        </h2>
+        <p class="font-bebas leading-none text-text-light text-5xl">
+          Explain Why They Would Want To Join. Fill Out The Form To Be
+          Considered.
+        </p>
+        <ul
+          class="mt-4 text-text-light space-y-2 flex flex-col items-center xl:items-stretch"
+        >
+          <li class="flex space-x-2">
+            <Icon name="mdi:check" size={20} /><span>Reason Number One</span>
+          </li>
+          <li class="flex space-x-2">
+            <Icon name="mdi:check" size={20} /><span>Reason Number Two</span>
+          </li>
+          <li class="flex space-x-2">
+            <Icon name="mdi:check" size={20} /><span>Reason Number Three</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</Layout>
