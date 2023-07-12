@@ -53,12 +53,12 @@ const MailchimpForm = () => {
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Your Email"
           type="email"
-          className="bg-transparent border border-black focus:outline-none rounded-full :py-3 w-64 px-4 text-sm text-text-light placeholder:text-text-light"
+          className="bg-transparent border border-black focus:outline-none rounded-full py-3 w-64 px-4 text-sm text-text-light placeholder:text-text-light"
         ></input>
         <button
           disabled={status !== "ready" ? true : false}
           onClick={submit}
-          className="bg-black inline-block px-16 py-3 rounded-full font-bebas text-large text-white cursor-pointer"
+          className="bg-black text-center inline-block px-16 py-3 rounded-full font-bebas text-large text-white cursor-pointer"
         >
           Sign Up
         </button>
