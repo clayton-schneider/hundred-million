@@ -1,5 +1,5 @@
 ---
-import { Image } from "@astrojs/image/components";
+import { YouTube } from "@astro-community/astro-embed-youtube";
 ---
 
 <section class="bg-black px-edge py-16 lg:py-20">
@@ -9,11 +9,9 @@ import { Image } from "@astrojs/image/components";
     >
       Our Story
     </h2>
-    <Image
-      class="mx-auto mt-5"
-      src={import("@img/kailash-satyarthi.jpg")}
-      alt="kailash-satyarthi"
-    />
+
+    <YouTube class="mx-auto" id="5C7hRUmvwRk" />
+
     <div class="mt-5 max-w-6xl mx-auto space-y-2 text-text-light text-lg">
       <p>
         Kailash Satyarthi has been a tireless advocate of children’s rights for
