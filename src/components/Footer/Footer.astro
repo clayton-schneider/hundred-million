@@ -13,8 +13,8 @@ const resourceLinks = [
 ];
 
 const socialLinks = [
-  { name: "mdi:twitter", link: "/" },
-  { name: "mdi:instagram", link: "/" },
+  { name: "mdi:twitter", link: "https://twitter.com/100millionus/" },
+  { name: "mdi:instagram", link: "https://www.instagram.com/100millionusa/" },
 ];
 
 const date = new Date();
@@ -43,7 +43,7 @@ import MailchimpForm from "@components/forms/MailchimpForm";
         <div class="flex justify-center lg:justify-start space-x-2 mt-6">
           {
             socialLinks.map((link) => (
-              <a href={link.link}>
+              <a target="_blank" href={link.link}>
                 <Icon name={link.name} size={24} class="fill-primary" />
               </a>
             ))
