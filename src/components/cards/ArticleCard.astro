@@ -33,7 +33,7 @@ const { data } = Astro.props;
       alt={data.featuredImage.node.altText
         ? data.featuredImage.node.altText
         : "100 Million US in action"}
-      format="jpeg"
+      format="webp"
       quality={80}
       width={data.featuredImage.node.mediaDetails.width}
       height={data.featuredImage.node.mediaDetails.height}
@@ -50,7 +50,7 @@ const { data } = Astro.props;
       <a
         class="font-bebas lg:self-start text-3xl text-text-light flex flex-shrink-0 items-center space-x-4"
         href={`/blog/${data.slug}`}
-        ><span>Read More</span>
+        ><span>Read Post</span>
         <Icon name="ph:arrow-right-bold" class="fill-text-light" size={24} />
       </a>
     </div>

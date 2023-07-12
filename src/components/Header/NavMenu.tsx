@@ -35,12 +35,14 @@ const NavMenu = ({ links }: Props) => {
             <a href={link.link}>{link.linkText}</a>
           </li>
         ))}
-        <PrimaryBtn
-          to="/join-us"
-          className="!block !bg-primary w-full text-center lg:w-auto"
-        >
-          Join Us
-        </PrimaryBtn>
+        <li>
+          <PrimaryBtn
+            to="/join-us"
+            className="!block !bg-primary w-full text-center lg:w-auto"
+          >
+            Join Us
+          </PrimaryBtn>
+        </li>
       </ul>
       <Hamburger clicked={handleClick} isOpen={isOpen} color="white" />
     </div>

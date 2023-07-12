@@ -36,15 +36,19 @@ import MailchimpForm from "@components/forms/MailchimpForm";
           alt="hundred million logo"
           class="mx-auto lg:mx-0"
         />
-        <h6 class="mt-6 font-bebas text-lg text-center lg:text-left">
+        <p class="mt-6 font-bebas text-lg text-center lg:text-left">
           A 100 Million Organizaiton. <a href="https://100million.org"
             >Visit Parent Org</a
           >
-        </h6>
+        </p>
         <div class="flex justify-center lg:justify-start space-x-2 mt-6">
           {
             socialLinks.map((link) => (
-              <a target="_blank" href={link.link}>
+              <a
+                target="_blank"
+                aria-label={`social link to: ${link.name}`}
+                href={link.link}
+              >
                 <Icon name={link.name} size={24} class="fill-primary" />
               </a>
             ))

@@ -6,6 +6,7 @@ interface Props {
 const Hamburger = ({ isOpen, clicked, color }: Props) => {
   return (
     <button
+      aria-label="mobile menu"
       onClick={clicked}
       className="relative z-50 cursor-pointer lg:hidden"
     >
