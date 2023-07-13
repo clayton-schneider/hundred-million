@@ -1,0 +1,4 @@
+Sitemap: https://www.100million-us.org/sitemap-index.xml
+
+User-agent: *
+Disallow: /assets/*
