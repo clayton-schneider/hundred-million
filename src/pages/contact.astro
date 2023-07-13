@@ -28,12 +28,12 @@ const socialLinks = [
   seo={{
     title: "Contact Us | 100 Million US",
     description:
-      "Have a question for us here at 100 million? Send us an email and we will get back to you as soon as we can.",
+      "Have a question for us here at 100 Million US? Send us an email and we will get back to you as soon as we can.",
   }}
 >
   <section class="bg-primary px-edge py-16">
     <div class="max-w-screen-2xl mx-auto text-center text-white">
-      <h1 class="font-bebas text-[100px]">Contact Us</h1>
+      <h1 class="font-bebas text-7xl lg:text-[100px]">Contact Us</h1>
       <p class="text-lg">
         Looking to get involved? Reach out to us and we will get back to you as
         soon as possibile with steps to take action.
@@ -51,7 +51,7 @@ const socialLinks = [
     <div
       class="max-w-4xl mx-auto grid grid-cols-1 lg:grid-cols-2 -translate-y-24"
     >
-      <div class="bg-white py-12 px-16">
+      <div class="bg-white px-8 py-6 lg:py-12 lg:px-16">
         <p class="font-bebas text-5xl text-center leading-none">
           Send Us A Message
         </p>
@@ -63,7 +63,7 @@ const socialLinks = [
           client:load
         />
       </div>
-      <div class="bg-primary py-20 px-16">
+      <div class="bg-primary py-10 px-8 lg:py-20 lg:px-16">
         <p class="font-bebas text-5xl text-white text-center">Contact Us</p>
         <ul class="mt-4 space-y-8">
           {
@@ -80,7 +80,7 @@ const socialLinks = [
             ))
           }
         </ul>
-        <ul class="flex justify-between mt-4 max-w-[150px] mx-auto">
+        <ul class="flex justify-center space-x-5 mt-4 max-w-[150px] mx-auto">
           {
             socialLinks.map((link) => (
               <a href={link.link} target="_blank">

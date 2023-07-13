@@ -101,10 +101,8 @@ const ContactForm = ({ name, message, error, fields }: Props) => {
       ))}
 
       {formState === "ready" && (
-        <button>
-          <PrimaryBtn color="primary" className="col-span-full text-center">
-            Send Message
-          </PrimaryBtn>
+        <button className="col-span-full bg-primary text-center inline-block px-16 py-3 rounded-full font-bebas text-2xl text-white cursor-pointer">
+          Send Message
         </button>
       )}
       {formState === "pending" && <p>sending...</p>}
