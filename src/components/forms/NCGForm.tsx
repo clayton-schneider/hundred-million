@@ -70,19 +70,21 @@ const NCGForm = () => {
   function onSubmit(values: z.infer<typeof formSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
-    // handleForm(
-    //   {
-    //     to: [{ email: "clayton@simply-sprout.com", name: "Clayton Schneider" }],
-    //     from: {
-    //       email: "noreply@simply-sprout.com",
-    //       name: "Website Email Bot",
-    //     },
-    //     subject: "Email Form Submission",
-    //   },
-    //   "100 Million: Teacher Form",
-    //   values
-    // );
-    console.log(values);
+    handleForm(
+      {
+        to: [
+          { email: "clayton@simply-sprout.com", name: "Clayton Schneider" },
+          { email: "usa@100million.org", name: "Hundred Million US" },
+        ],
+        from: {
+          email: "noreply@simply-sprout.com",
+          name: "Website Email Bot",
+        },
+        subject: "Email Form Submission",
+      },
+      "100 Million: Teacher Form",
+      values
+    );
   }
 
   return (
@@ -229,12 +231,17 @@ const NCGForm = () => {
           )}
         />
 
-        <button
-          type="submit"
-          className="mx-auto lg:mx-0 bg-primary block px-16 py-3 rounded-full font-bebas text-2xl text-white cursor-pointer"
-        >
-          Submit
-        </button>
+        {!form.formState.isSubmitSuccessful && (
+          <button
+            type="submit"
+            className="mx-auto lg:mx-0 bg-primary block px-16 py-3 rounded-full font-bebas text-2xl text-white cursor-pointer"
+          >
+            Submit
+          </button>
+        )}
+        {form.formState.isSubmitSuccessful && (
+          <p>Your entry was successfully submitted. You may leave this page</p>
+        )}
       </form>
     </Form>
   );
