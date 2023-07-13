@@ -16,9 +16,9 @@ const formSchema = z.object({
     message: "Fullname must be at least 2 characters.",
   }),
   email: z.string().email(),
-  state: z.string({ required_error: "Please select a state." }),
-  age: z.string(),
-  activist: z.string(),
+  state: z.string().min(1, { message: "Please select a state." }),
+  age: z.string().min(1, { message: "Please enter your age." }),
+  activist: z.string().min(1, { message: "Please select your designation." }),
   referral: z
     .string()
     .min(2, { message: "Must be at least 2 characters." })
@@ -65,7 +65,10 @@ const IndividualForm = () => {
     // ✅ This will be type-safe and validated.
     handleForm(
       {
-        to: [{ email: "clayton@simply-sprout.com", name: "Clayton Schneider" }],
+        to: [
+          { email: "clayton@simply-sprout.com", name: "Clayton Schneider" },
+          { email: "usa@100million.org", name: "Hundred Million US" },
+        ],
         from: {
           email: "noreply@simply-sprout.com",
           name: "Website Email Bot",
@@ -249,12 +252,17 @@ const IndividualForm = () => {
             </FormItem>
           )}
         />
-        <button
-          type="submit"
-          className="mx-auto bg-primary block px-16 py-3 rounded-full font-bebas text-2xl text-white cursor-pointer"
-        >
-          Submit
-        </button>
+        {!form.formState.isSubmitSuccessful && (
+          <button
+            type="submit"
+            className="mx-auto lg:mx-0 bg-primary block px-16 py-3 rounded-full font-bebas text-2xl text-white cursor-pointer"
+          >
+            Submit
+          </button>
+        )}
+        {form.formState.isSubmitSuccessful && (
+          <p>Your entry was successfully submitted. You may leave this page</p>
+        )}
       </form>
     </Form>
   );
