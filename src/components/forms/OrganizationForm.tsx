@@ -6,26 +6,28 @@ const formSchema = z.object({
   organization: z.string().min(2, {
     message: "Fullname must be at least 2 characters.",
   }),
-  website: z.string({
-    required_error: "Please make sure to enter your website.",
+  website: z.string().min(1, {
+    message: "Please make sure to enter your website.",
   }),
-  mission: z.string({
-    required_error: "Please make sure to enter your mission.",
+  mission: z.string().min(1, {
+    message: "Please make sure to enter your mission.",
   }),
-  state: z.string({ required_error: "Please select a state." }),
-  contact: z.string({ required_error: "Please make sure to enter your name." }),
-  role: z.string({ required_error: "Please make sure to enter your role." }),
+  state: z.string().min(1, { message: "Please select a state." }),
+  contact: z
+    .string()
+    .min(1, { message: "Please make sure to enter your name." }),
+  role: z.string().min(1, { message: "Please make sure to enter your role." }),
   email: z
     .string({ required_error: "Please make sure to enter your email." })
     .email(),
   phone: z.string().refine(validator.isMobilePhone, {
     message: "Please enter a valid phone number",
   }),
-  referral: z.string({
-    required_error: "Please make sure to enter how you found us.",
+  referral: z.string().min(1, {
+    message: "Please make sure to enter how you found us.",
   }),
-  need: z.string({
-    required_error: "Please make sure to enter any help you need.",
+  need: z.string().min(1, {
+    message: "Please make sure to enter any help you need.",
   }),
 });
 
@@ -69,7 +71,11 @@ const IndividualForm = () => {
     // ✅ This will be type-safe and validated.
     handleForm(
       {
-        to: [{ email: "clayton@simply-sprout.com", name: "Clayton Schneider" }],
+        to: [
+          { email: "clayton@simply-sprout.com", name: "Clayton Schneider" },
+
+          { email: "usa@100million.org", name: "Hundred Million US" },
+        ],
         from: {
           email: "noreply@simply-sprout.com",
           name: "Website Email Bot",
@@ -223,12 +229,17 @@ const IndividualForm = () => {
             </FormItem>
           )}
         />
-        <button
-          type="submit"
-          className="mx-auto lg:mx-0 bg-primary block px-16 py-3 rounded-full font-bebas text-2xl text-white cursor-pointer"
-        >
-          Submit
-        </button>
+        {!form.formState.isSubmitSuccessful && (
+          <button
+            type="submit"
+            className="mx-auto lg:mx-0 bg-primary block px-16 py-3 rounded-full font-bebas text-2xl text-white cursor-pointer"
+          >
+            Submit
+          </button>
+        )}
+        {form.formState.isSubmitSuccessful && (
+          <p>Your entry was successfully submitted. You may leave this page</p>
+        )}
       </form>
     </Form>
   );
