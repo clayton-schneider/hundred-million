@@ -41,7 +41,7 @@ const blog = await getArticleBySlug(slug);
         <h1 class="font-bebas text-6xl">{blog.title}</h1>
 
         <article
-          class="prose prose-img:mx-auto space-y-5"
+          class="prose prose-img:mx-auto prose-invert max-w-none"
           set:html={blog.body}
         />
       </div>

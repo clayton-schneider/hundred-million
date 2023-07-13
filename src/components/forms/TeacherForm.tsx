@@ -23,18 +23,18 @@ const formSchema = z.object({
   phone: z.string().refine(validator.isMobilePhone, {
     message: "Please enter a valid phone number",
   }),
-  state: z.string({ required_error: "Please select a state." }),
-  level: z.string({
-    required_error: "Please select the students that you teach.",
+  state: z.string().min(1, { message: "Please select a state." }),
+  level: z.string().min(1, {
+    message: "Please select the students that you teach.",
   }),
-  school: z.string({
-    required_error: "Please make sure to enter the school you teach at.",
+  school: z.string().min(1, {
+    message: "Please make sure to enter the school you teach at.",
   }),
-  need: z.string({
-    required_error: "Please make sure to enter any help you need.",
+  need: z.string().min(1, {
+    message: "Please make sure to enter any help you need.",
   }),
-  referral: z.string({
-    required_error: "Please make sure to enter how you found us.",
+  referral: z.string().min(1, {
+    message: "Please make sure to enter how you found us.",
   }),
 });
 
@@ -72,13 +72,18 @@ const TeacherForm = () => {
     },
   });
 
+  console.log(form);
+
   // 2. Define a submit handler.
   function onSubmit(values: z.infer<typeof formSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
     handleForm(
       {
-        to: [{ email: "clayton@simply-sprout.com", name: "Clayton Schneider" }],
+        to: [
+          { email: "clayton@simply-sprout.com", name: "Clayton Schneider" },
+          { email: "usa@100million.org", name: "Hundred Million US" },
+        ],
         from: {
           email: "noreply@simply-sprout.com",
           name: "Website Email Bot",
@@ -149,7 +154,10 @@ const TeacherForm = () => {
                   className="flex flex-col space-y-1"
                 >
                   {levels.map((level) => (
-                    <FormItem className="flex items-center space-x-3 space-y-0">
+                    <FormItem
+                      key={level.id}
+                      className="flex items-center space-x-3 space-y-0"
+                    >
                       <FormControl>
                         <RadioGroupItem value={level.id} />
                       </FormControl>
@@ -213,12 +221,18 @@ const TeacherForm = () => {
             </FormItem>
           )}
         />
-        <button
-          type="submit"
-          className="mx-auto lg:mx-0 bg-primary block px-16 py-3 rounded-full font-bebas text-2xl text-white cursor-pointer"
-        >
-          Submit
-        </button>
+
+        {!form.formState.isSubmitSuccessful && (
+          <button
+            type="submit"
+            className="mx-auto lg:mx-0 bg-primary block px-16 py-3 rounded-full font-bebas text-2xl text-white cursor-pointer"
+          >
+            Submit
+          </button>
+        )}
+        {form.formState.isSubmitSuccessful && (
+          <p>Your entry was successfully submitted. You may leave this page</p>
+        )}
       </form>
     </Form>
   );
