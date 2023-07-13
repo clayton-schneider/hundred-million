@@ -1,0 +1,26 @@
+---
+import Layout from "src/layouts/Layout.astro";
+---
+
+<Layout
+  seo={{
+    title: "Can't find this page | 100 Million US",
+    description: "Looks like we can't find the page you are looking for.",
+  }}
+>
+  <section class="px-edge py-10 lg:py-20">
+    <div class="max-w-screen-xl mx-auto text-center">
+      <h1 class="font-bebas font-black font-headline text-4xl lg:text-5xl">
+        The Page You Are Looking For Could Not Be Found
+      </h1>
+      <p class="mt-3 text-lg">
+        Sorry, we can't find this page. The page was either removed, renamed, or
+        doesn't exist.
+      </p>
+      <a
+        class="mt-5 bg-primary inline-block px-16 py-3 rounded-full font-bebas text-2xl text-white cursor-pointer"
+        href="/">Go Home</a
+      >
+    </div>
+  </section>
+</Layout>
