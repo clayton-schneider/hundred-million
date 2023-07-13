@@ -78,6 +78,7 @@ export async function getArticleBySlug(slug) {
     body
     title
     summary
+    writer
     featuredImage {
       node {
         altText
