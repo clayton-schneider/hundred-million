@@ -1,5 +1,4 @@
 ---
-import PrimaryBtn from "@components/buttons/PrimaryBtn";
 import ArticleCard from "@components/cards/ArticleCard.astro";
 
 import { getLatestArticles } from "src/utils/api/articles";
@@ -15,11 +14,9 @@ const articles = await getLatestArticles();
       >
         Latest <span class="text-primary">Articles</span>
       </h2>
-      <PrimaryBtn
-        color="primary"
-        to="/blog"
-        className="grow shrink-0 max-w-[280px] text-center"
-        >View All Articles</PrimaryBtn
+      <a
+        class="grow shrink-0 max-w-[280px] text-center bg-primary inline-block px-16 py-3 rounded-full font-bebas text-2xl text-white cursor-pointer"
+        href="/blog">View All Articles</a
       >
     </div>
     <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-10">

@@ -39,11 +39,9 @@ const { className, data } = Astro.props;
         <h6 class="font-bebas text-4xl md:text-6xl">{data.title}</h6>
         <p class="mt-2 text-lg">{data.text}</p>
       </div>
-
-      <PrimaryBtn
-        to={data.link.to}
-        color="primary"
-        className="mt-5 inline-block">{data.link.text}</PrimaryBtn
+      <a
+        class="mt-5 bg-primary inline-block px-16 py-3 rounded-full font-bebas text-2xl text-white cursor-pointer"
+        href={data.link.to}>{data.link.text}</a
       >
     </div>
   </div>

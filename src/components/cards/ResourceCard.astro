@@ -40,8 +40,9 @@ const { className, data } = Astro.props;
   <div class="py-10 px-4 text-center text-text-light max-w-sm mx-auto">
     <h6 class="font-bebas text-4xl md:text-6xl">{data.title}</h6>
     <p class="mt-2 text-lg">{data.summary}</p>
-    <PrimaryBtn to={`/resources/${data.slug}`} color="primary" className="mt-5"
-      >Read More</PrimaryBtn
+    <a
+      class="mt-5 bg-primary px-16 py-3 rounded-full font-bebas text-2xl text-white cursor-pointer"
+      href={`/resources/${data.slug}`}>Read More</a
     >
   </div>
 </div>
