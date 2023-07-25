@@ -82,7 +82,7 @@ const NCGForm = () => {
         },
         subject: "Email Form Submission",
       },
-      "100 Million: Teacher Form",
+      "100 Million: NCG Form",
       values
     );
   }
