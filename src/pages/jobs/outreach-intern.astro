@@ -1,0 +1,93 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import PageBanner from "@/sections/PageBanner.astro";
+import JobForm from "@/components/forms/JobForm";
+---
+
+<Layout
+  seo={{
+    title: "Outreach and Communications Intern | 100 Million US",
+    description:
+      "Join the 100 Million US Team with this intern position focused on outreach and communication! Apply Today!",
+  }}
+>
+  <PageBanner>Outreach and Communications Interns</PageBanner>
+
+  <section class="px-edge py-16 lg:py-36 bg-black relative">
+    <div
+      class="max-w-screen-2xl mx-auto flex flex-col xl:flex-row justify-between gap-10 2xl:gap-40 relative z-10"
+    >
+      <div class="order-2 flex-1 lg:min-h-[1080px] lg:min-w-[500px]">
+        <div class="bg-white py-5 px-8 lg:py-12 lg:px-16">
+          <JobForm job="Outreach Intern" client:load />
+        </div>
+      </div>
+      <div class="text-center xl:text-left max-w-2xl mx-auto">
+        <h2 class="font-bebas leading-none text-text-light text-[100px]">
+          Join Our <span class="text-primary text-[100px]">Team</span>
+        </h2>
+        <div class="text-white text-lg leading-relaxed space-y-2">
+          <div class="space-y-2">
+            <p>
+              The ideal candidate is someone who is passionate about building
+              relationships and networking. The candidate must be comfortable
+              reaching out to various organizations, individuals, and schools to
+              gain support for awareness raising campaigns. By working with a
+              small team, this internship provides the opportunity to gain real
+              world, professional experience in the international development
+              and nonprofit arenas. We are looking for an enthusiastic
+              individual passionate about making a difference.
+            </p>
+            <p>
+              This is a part-time position and can be completed either remotely
+              or hybrid. Hours may vary.
+            </p>
+            <p>
+              This is an unpaid internship that is applicable for college credit
+              or volunteer hours.
+            </p>
+
+            <p>
+              <span class="font-bebas text-2xl tracking-wide"
+                >Primary Responsibilities:</span
+              > The intern will support our organization by:
+            </p>
+            <ul class="list-disc text-base">
+              {
+                [
+                  "Drafting and sending 100 Million monthly newsletters to our youth activist network",
+                  "Researching potential partner organizations and individuals connected to our mission, specifically those we could ask to collaborate with for the awareness raising campaigns",
+                  "Maintaining communication with partner organizations",
+                  "Assisting in updating the 100 Million US website",
+                  "Tabling at community outreach events, such as high school fairs, local town events, college open houses, and virtual events",
+                  "Connecting with schools looking for potential guest speakers/presentations on child labor and activism",
+                  "Assisting in updating the existing education curricula to be used in schools for raising awareness about the global child labor crisis",
+                  "Contributing to the drafting of op-eds and/or blog posts",
+                  "Attending coalition meetings on issues related to children’s rights",
+                ].map((text) => <li>{text}</li>)
+              }
+            </ul>
+          </div>
+
+          <p>
+            <span class="font-bebas text-2xl tracking-wide"
+              >Primary Functions:</span
+            > Outreach, Detailed Writing, Public Speaking, Development
+          </p>
+          <p>
+            <span class="font-bebas text-2xl tracking-wide">Requirements:</span>
+          </p>
+          <ul class="list-disc text-base">
+            {
+              [
+                "Strong verbal and written communication skills",
+                "Ability to pay close attention to details",
+                "Capacity to work both in a team and independently with varying degrees of supervision",
+              ].map((text) => <li>{text}</li>)
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

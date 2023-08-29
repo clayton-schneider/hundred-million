@@ -109,7 +109,9 @@ const JobForm = ({ job }: { job: string }) => {
           name="why"
           render={({ field }) => (
             <FormItem className="col-span-2">
-              <FormLabel>Why do you want to intern with 100 Million?</FormLabel>
+              <FormLabel>
+                Why do you want to intern with 100 Million? (Limit 250 words)
+              </FormLabel>
               <FormControl>
                 <Textarea
                   maxLength={1250}
@@ -128,7 +130,8 @@ const JobForm = ({ job }: { job: string }) => {
           render={({ field }) => (
             <FormItem className="col-span-2">
               <FormLabel>
-                Tell us a bit about why this internship interests you!
+                Tell us a bit about why this internship interests you! (Limit
+                250 words)
               </FormLabel>
               <FormControl>
                 <Textarea
