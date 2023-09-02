@@ -39,7 +39,6 @@ import {
 } from "@components/ui/form";
 import { Input } from "@components/ui/input";
 import { handleForm } from "@/lib/utils";
-import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
 import { Checkbox } from "../ui/checkbox";
 
 const JobForm = ({ job }: { job: string }) => {
@@ -49,8 +48,8 @@ const JobForm = ({ job }: { job: string }) => {
     defaultValues: {
       name: "",
       email: "",
-      why: "",
       about: "",
+      why: "",
     },
   });
 
@@ -70,7 +69,7 @@ const JobForm = ({ job }: { job: string }) => {
         },
         subject: "Email Form Submission",
       },
-      "100 Million: " + job,
+      `100 Million: ${job}`,
       values
     );
   }
