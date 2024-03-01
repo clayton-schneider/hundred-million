@@ -13,24 +13,22 @@ import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
+import partytown from "@astrojs/partytown";
+
+// https://astro.build/config
 export default defineConfig({
   build: {
-    format: "file",
+    format: "file"
   },
   site: "https://www.100million-us.org",
-  integrations: [
-    tailwind({
-      config: {
-        applyBaseStyles: false,
-      },
-    }),
-    image(),
-    react(),
-    sitemap(),
-  ],
+  integrations: [tailwind({
+    config: {
+      applyBaseStyles: false
+    }
+  }), image(), react(), sitemap(), partytown()],
   vite: {
     ssr: {
-      noExternal: ["@splidejs/splide"],
-    },
-  },
+      noExternal: ["@splidejs/splide"]
+    }
+  }
 });
